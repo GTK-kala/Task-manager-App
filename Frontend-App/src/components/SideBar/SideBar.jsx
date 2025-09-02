@@ -1,17 +1,25 @@
 import { FaCheckSquare , FaTh , FaFacebookMessenger , FaDiscord , FaSlack} from "react-icons/fa";
 import { FaGithub, FaToggleOn , FaToggleOff , FaCog , FaMoon} from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
+import { useContext ,useState } from "react";
+import { contextApi } from "../../context/Contextprovider";
 import './SideBar.css'
 
 const SideBar = () => {
+
+     const { MenuFunction , menu , MessageFunction , 
+             message , menu_title , TitleFunction} = useContext(contextApi);
+
+     const [isDarkMode, setIsDarkMode] = useState(false);
+
   return (
 /*------------------------Main-container ------------------------ */
     <div className='side-container'>
         <div className="sub-container">
 {/*-----------------------Menu-container-------------------------*/}
             <div className="menu-container">
-               <p className="menu-title">MENU</p>
-               <ul>
+               <p className={`menu-title ${menu_title}`} onClick={()=>{MenuFunction(),TitleFunction()}}>MENU</p>
+               <ul className={menu}>
                    <li>
                     <FaTh className="icons"/>
                     <span>Dashboard</span>
@@ -24,8 +32,8 @@ const SideBar = () => {
             </div>
 {/*-----------------------Message-container-------------------------*/}
             <div className="message-container">
-               <p>MESSAGE</p>
-               <ul>
+               <p onClick={()=>MessageFunction()}>MESSAGE</p>
+               <ul className={message}>
                    <li>
                     <FaGithub />
                     <span> GitHub</span>
@@ -57,7 +65,7 @@ const SideBar = () => {
                 <p className="dark-mode-container">
                     <FaMoon />
                      <span className="dark-mode-icon">Dark Mode</span>
-                    <FaToggleOn className="toggle-icon"/>  
+                    {isDarkMode ? <FaToggleOn className="toggle-icon" onClick={() => setIsDarkMode(!isDarkMode)}/> : <FaToggleOff className="toggle-icon" onClick={() => setIsDarkMode(!isDarkMode)}/>}
                 </p>
             </div>
         </div>

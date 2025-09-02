@@ -1,3 +1,4 @@
+/*---------------------------- container ---------------------------*/
 .container {
   display: flex;
   align-items: center;
@@ -7,6 +8,7 @@
   background-color: #fff;
 }
 
+/*---------------------------- left-container ---------------------------*/
 .left-container {
   display: flex;
   align-items: center;
@@ -27,12 +29,14 @@
   cursor: pointer;
 }
 
+/*---------------------------- center-container ---------------------------*/
 .center-container {
   align-self: flex-start;
   margin-right: auto;
   margin-left: 180px;
 }
 
+/*---------------------------- right-container ----------------------------*/
 .right-container{
     position: relative;
     left: -40px;
@@ -40,7 +44,7 @@
     justify-content: space-between;
     align-items: center;
 }
-
+/* -------------------------- inner-container ----------------------------*/
 .inner-container{
     display: flex;
     align-items: center;

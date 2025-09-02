@@ -1,7 +1,7 @@
 /*-------------------- Main-container ------------------------ */
 .side-container {
   background: #fff;
-  width: 20.6%;
+  width: 20.8%;
   height: 90vh;
   margin-top: 3px;
   border-radius: 7px;
@@ -26,6 +26,9 @@
   color: #aba9a9;
   cursor: pointer;
 }
+.menu-container .actives{
+    margin-bottom: 40px;
+}
 .menu-container .menu-title:hover {
   color: #000;
 }
@@ -39,6 +42,10 @@
   gap: -6px;
   flex-direction: column;
   margin-left: 9px;
+  transition: all 0.8s ease-in-out;
+}
+.menu-container .active{
+    display: none;
 }
 .menu-container ul li {
   display: flex;
@@ -68,6 +75,9 @@
   align-items: flex-start;
   justify-content: center;
 }
+.message-container .active{
+    display: none;
+}
 .message-container p {
   font-weight: 300;
   font-size: 14px;
@@ -84,6 +94,7 @@
   gap: 20px;
   flex-direction: column;
   margin-left: 9px;
+  transition: all 0.8s ease-in-out;
 }
 .message-container ul li {
   display: flex;
@@ -126,5 +137,5 @@
      font-size: 23px;
      position: relative;
      top: -4px;
-     margin-left: 20px;
+     left: 56px;
 }

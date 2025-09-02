@@ -4,14 +4,18 @@ import { Images } from "../../assets/data";
 import "./NavBar.css";
 const NavBar = () => {
   return (
+/*----------------------------container ---------------------------*/
     <div className="container">
+{/* ------------------------ left-container ----------- -----------*/}
       <div className="left-container">
         <img src={Images.option_icon} alt="" />
         <h2>ProTasks</h2>
       </div>
+{/* ------------------------ center-container ----------- -----------*/}
       <div className="center-container">
         <h1>Tasks</h1>
       </div>
+{/* ------------------------ right-container ----------- -----------*/}
       <div className="right-container">
         <div className="inner-container">
           <button>
