@@ -1,57 +1,130 @@
-.side-container{
-    background: #fff;
-    width: 22%;
-    height: 82vh;
-    margin-top: 3px;
-    border-radius: 7px;
-    padding: 3px 0px 0px 20px;
-    display: flex;
-    flex-direction: column;
+/*-------------------- Main-container ------------------------ */
+.side-container {
+  background: #fff;
+  width: 20.6%;
+  height: 90vh;
+  margin-top: 3px;
+  border-radius: 7px;
+  padding: 3px 0px 0px 20px;
+  display: flex;
+  flex-direction: column;
 }
-.sub-container{
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
+.sub-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
 }
-.menu-container{
-    display: flex;
-    flex-direction: column;
-}   
-.menu-container .menu-title{
-    font-weight:300;    
-    font-size: 14px;
-    color: #aba9a9;
-    cursor: pointer;
+
+/*------------------- Menu-container -------------------*/
+.menu-container {
+  display: flex;
+  flex-direction: column;
 }
-.menu-container .menu-title:hover{
-    color: #000;
+.menu-container .menu-title {
+  font-weight: 300;
+  font-size: 14px;
+  color: #aba9a9;
+  cursor: pointer;
 }
-.menu-container ul{
-    list-style: none;
+.menu-container .menu-title:hover {
+  color: #000;
+}
+.menu-container ul {
+  list-style: none;
+  position: relative;
+  left: -10px;
+  top: -15px;
+  padding-left: 0px;
+  display: flex;
+  gap: -6px;
+  flex-direction: column;
+  margin-left: 9px;
+}
+.menu-container ul li {
+  display: flex;
+  width: 80%;
+  color: #3b82f6;
+  align-items: center;
+  gap: 10px;
+  padding: 13px;
+  font-weight: 400;
+  font-size: 18px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+.menu-container ul li:hover {
+  background-color: #3b82f6;
+  color: #fff;
+}
+
+/*------------------- Message-container -------------------*/
+
+.message-container {
+  position: relative;
+  top: -30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.message-container p {
+  font-weight: 300;
+  font-size: 14px;
+  color: #aba9a9;
+  cursor: pointer;
+}
+.message-container ul {
+  list-style: none;
+  position: relative;
+  left: 3px;
+  top: -2px;
+  padding-left: 0px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  margin-left: 9px;
+}
+.message-container ul li {
+  display: flex;
+  color: #3b82f6;
+  align-items: center;
+  gap: 10px;
+  font-weight: 400;
+  font-size: 18px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.message-container ul li:hover {
+  color: #032760;
+}
+
+/*------------------- Settings-container -------------------*/
+
+.settings-container {
+  position: relative;
+  top: -30px;
+  display: flex;
+  flex-direction: column;
+}
+.settings-container p {
+  font-weight: 300;
+  font-size: 17px;
+  display: flex;
+  gap: 8px;
+  color: #5f5e5e;
+  cursor: pointer;
+}
+.settings-container .dark-mode-container{
     position: relative;
-    left: -10px;
-    top: -15px;
-    padding-left: 0px;
-    display: flex;
-    flex-direction: column;
-    margin-left: 5px;
+    padding-top: 10px; 
+    border-top: 1px solid #d4d2d2;
+    top:-20px;
 }
-.menu-container ul li{
-    display: flex;
-    width: 70%;
-    color: #3b82f6;
-    align-items: center;
-    gap: 7px;
-    padding-left: 13px;
-    font-weight: 400;
-    font-size: 15px;
-    border-radius: 30px;
-    cursor: pointer;
-}
-.menu-container ul li:hover{
-    background-color: #3b82f6;
-}
-.menu-container ul li:hover{
-    color: #fff;
-    border-radius: 5px;
+.settings-container p .toggle-icon{
+     font-size: 23px;
+     position: relative;
+     top: -4px;
+     margin-left: 20px;
 }
