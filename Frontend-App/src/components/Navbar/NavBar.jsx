@@ -1,25 +1,41 @@
-import {Images} from '../../assets/data'
-import './NavBar.css'
+import { MdNotifications, MdMessage, MdMail } from "react-icons/md";
+import { FaPlus } from "react-icons/fa";
+import { Images } from "../../assets/data";
+import "./NavBar.css";
 const NavBar = () => {
   return (
     <div className="container">
-        <div className="left-container">
-            <img src={Images.option_icon} alt="" />
-            <h2>ProTasks</h2>
+      <div className="left-container">
+        <img src={Images.option_icon} alt="" />
+        <h2>ProTasks</h2>
+      </div>
+      <div className="center-container">
+        <h1>Tasks</h1>
+      </div>
+      <div className="right-container">
+        <div className="inner-container">
+          <button>
+            <FaPlus className="icon" />
+            <p>Create Tasks</p>
+          </button>
+          <div className="icon-container">
+            <div className="icon-wrapper">
+              <MdNotifications className="icon bell" />
+              <span className="badge">3</span>
+            </div>
+            <div className="icon-wrapper">
+              <MdMessage className="icon message" />
+              <span className="badge">5</span>
+            </div>
+            <div className="icon-wrapper">
+              <MdMail className="icon mail" />
+              <span className="badge">2</span>
+            </div>
+          </div>
         </div>
-        <div className="center-container">
-           <h1>Tasks</h1>
-        </div>
-        <div className="right-container">
-           <div className='inner-container'>
-             <button> 
-                <img src={Images.add_icon} alt="" />
-                <p>Create Tasks</p>
-             </button>
-           </div>
-        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;
