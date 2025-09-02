@@ -1,0 +1,57 @@
+.side-container{
+    background: #fff;
+    width: 22%;
+    height: 82vh;
+    margin-top: 3px;
+    border-radius: 7px;
+    padding: 3px 0px 0px 20px;
+    display: flex;
+    flex-direction: column;
+}
+.sub-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+.menu-container{
+    display: flex;
+    flex-direction: column;
+}   
+.menu-container .menu-title{
+    font-weight:300;    
+    font-size: 14px;
+    color: #aba9a9;
+    cursor: pointer;
+}
+.menu-container .menu-title:hover{
+    color: #000;
+}
+.menu-container ul{
+    list-style: none;
+    position: relative;
+    left: -10px;
+    top: -15px;
+    padding-left: 0px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
+.menu-container ul li{
+    display: flex;
+    width: 70%;
+    color: #3b82f6;
+    align-items: center;
+    gap: 7px;
+    padding-left: 13px;
+    font-weight: 400;
+    font-size: 15px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.menu-container ul li:hover{
+    background-color: #3b82f6;
+}
+.menu-container ul li:hover{
+    color: #fff;
+    border-radius: 5px;
+}

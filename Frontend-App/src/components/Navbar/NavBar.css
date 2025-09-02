@@ -4,6 +4,7 @@
   justify-content: space-between;
   border: 1px solid rgb(238, 238, 238);
   border-radius: 8px;
+  background-color: #fff;
 }
 
 .left-container {
@@ -82,7 +83,7 @@
   margin-left: 25px;
   display: flex;
   gap: 35px;
-  font-size: 26px;
+  font-size: 28px;
 }
 
 .icon-wrapper {

@@ -1,9 +1,11 @@
-import NavBar from '../components/Navbar/NavBar.jsx'
+import NavBar from '../components/Navbar/NavBar'
+import SideBar from '../components/SideBar/SideBar'
 
 const Home = () => {
   return (
     <>
-      <NavBar />  
+      <NavBar /> 
+      <SideBar />
     </>
   )
 }
