@@ -145,3 +145,20 @@
      top: -4px;
      left: 56px;
 }
+::-webkit-scrollbar{
+  display: none;
+}
+@media  (max-width:950px) {
+  .side-container{
+   width: 30.8%;
+  }
+  .dark-mode{
+    display: none;
+  }
+  .settings-container p .toggle-icon{
+     font-size: 23px;
+     position: relative;
+     top: -4px;
+     left: 20px;
+}
+}

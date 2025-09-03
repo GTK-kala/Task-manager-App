@@ -63,7 +63,7 @@ const SideBar = () => {
                     <span>Settings</span>
                 </p>
                 <p className="dark-mode-container">
-                    <FaMoon />
+                    <FaMoon className="dark-mode"/>
                      <span className="dark-mode-icon">Dark Mode</span>
                     {isDarkMode ? <FaToggleOn className="toggle-icon" onClick={() => setIsDarkMode(!isDarkMode)}/> : <FaToggleOff className="toggle-icon" onClick={() => setIsDarkMode(!isDarkMode)}/>}
                 </p>
