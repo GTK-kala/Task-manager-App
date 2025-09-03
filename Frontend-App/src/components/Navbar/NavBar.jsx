@@ -1,8 +1,13 @@
 import { MdNotifications, MdMessage, MdMail } from "react-icons/md";
-import { FaPlus } from "react-icons/fa";
+import { FaPlus , FaBars  } from "react-icons/fa";
 import { Images } from "../../assets/data";
+import { useContext } from "react";
+import { contextApi } from "../../context/Contextprovider";
 import "./NavBar.css";
 const NavBar = () => {
+
+   const { showMenuFunction , menuItems , setMenuItems } = useContext(contextApi);
+
   return (
 /*----------------------------container ---------------------------*/
     <div className="container">
@@ -16,7 +21,7 @@ const NavBar = () => {
         <h1>Tasks</h1>
       </div>
 {/* ------------------------ right-container ----------- -----------*/}
-      <div className="right-container">
+      <div className={`${menuItems ? 'right-container' : 'active'}`}>
         <div className="inner-container">
           <button>
             <FaPlus className="icon" />
@@ -37,6 +42,10 @@ const NavBar = () => {
             </div>
           </div>
         </div>
+      </div>
+{/* ------------------------ menu-icon ----------- -----------*/}
+      <div className="menuBar-icon">
+        <FaBars className="icon" onClick={() => showMenuFunction()} />
       </div>
     </div>
   );

@@ -84,6 +84,9 @@
   color: #aba9a9;
   cursor: pointer;
 }
+.message-container p:hover {
+  color: #000;
+}
 .message-container ul {
   list-style: none;
   position: relative;
@@ -127,6 +130,9 @@
   color: #5f5e5e;
   cursor: pointer;
 }
+.settings-container p:hover {
+  color: #000;
+}
 .settings-container .dark-mode-container{
     position: relative;
     padding-top: 10px; 
@@ -139,3 +145,4 @@
      top: -4px;
      left: 56px;
 }
+@m
