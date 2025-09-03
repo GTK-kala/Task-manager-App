@@ -6,7 +6,7 @@ import { contextApi } from "../../context/Contextprovider";
 import "./NavBar.css";
 const NavBar = () => {
 
-   const { showMenuFunction , menuItems , setMenuItems } = useContext(contextApi);
+   const { ToggleHandel, toggle, isOpen } = useContext(contextApi);
 
   return (
 /*----------------------------container ---------------------------*/
@@ -21,8 +21,8 @@ const NavBar = () => {
         <h1>Tasks</h1>
       </div>
 {/* ------------------------ right-container ----------- -----------*/}
-      <div className={`${menuItems ? 'right-container' : 'active'}`}>
-        <div className="inner-container">
+      <div className={`right-container ${toggle}`}>
+        <div className={`inner-container ${isOpen}`}>
           <button>
             <FaPlus className="icon" />
             <p>Create Tasks</p>
@@ -45,7 +45,7 @@ const NavBar = () => {
       </div>
 {/* ------------------------ menu-icon ----------- -----------*/}
       <div className="menuBar-icon">
-        <FaBars className="icon" onClick={() => showMenuFunction()} />
+        <FaBars className="icon" onClick={() => ToggleHandel()} />
       </div>
     </div>
   );

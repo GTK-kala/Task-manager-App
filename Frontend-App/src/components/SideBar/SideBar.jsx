@@ -8,7 +8,7 @@ import './SideBar.css'
 const SideBar = () => {
 
      const { MenuFunction , menu , MessageFunction , 
-             message , menu_title , TitleFunction} = useContext(contextApi);
+             message , menu_title } = useContext(contextApi);
 
      const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -18,7 +18,7 @@ const SideBar = () => {
         <div className="sub-container">
 {/*-----------------------Menu-container-------------------------*/}
             <div className="menu-container">
-               <p className={`menu-title ${menu_title}`} onClick={()=>{MenuFunction(),TitleFunction()}}>MENU</p>
+               <p className={`menu-title ${menu_title}`} onClick={()=>{MenuFunction()}}>MENU</p>
                <ul className={menu}>
                    <li>
                     <FaTh className="icons"/>

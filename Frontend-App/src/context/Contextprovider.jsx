@@ -4,25 +4,20 @@ export const contextApi = createContext(null);
 const Contextprovider = (props) => {
   const [menu, setMenu] = useState("");
   const [message, setMessage] = useState("");
-  // const [showMenu, setShowMenu] = useState("");
-  const [menu_title, setMenuTitle] = useState("right-container");
-  const [menuItems, setMenuItems] = useState("");
+  const [menu_title, setMenuTitle] = useState(" ");
+  const [toggle, setToggle] = useState("");
+  const [isOpen, setIsOpen] = useState("");
 
   const MenuFunction = () => {
     if (menu === "") {
-      setMenu("active");
-      setMenuTitle("actives");
+        setMenu("menu");
+        setMenuTitle("menu_title");
     } else {
       setMenu("");
-    }
-  };
-  const TitleFunction = () => {
-    if (menu_title === "") {
-      setMenuTitle("actives");
-    } else {
       setMenuTitle("");
     }
   };
+
   const MessageFunction = () => {
     if (message === "") {
       setMessage("active");
@@ -31,11 +26,13 @@ const Contextprovider = (props) => {
     }
   };
 
-  const showMenuFunction = () => {
-    if (menuItems === "right-container") {
-      setMenuItems("active");
+  const ToggleHandel = () => {
+    if (toggle === "") {
+      setToggle("clicked");
+      setIsOpen("open");
     } else {
-      setMenuItems("right-container");
+      setToggle("");
+      setIsOpen("");
     }
   };
 
@@ -45,10 +42,9 @@ const Contextprovider = (props) => {
     MessageFunction,
     message,
     menu_title,
-    TitleFunction,
-    showMenuFunction,
-    menuItems,
-    setMenuItems,
+    ToggleHandel,
+    toggle,
+    isOpen,
   };
 
   return (

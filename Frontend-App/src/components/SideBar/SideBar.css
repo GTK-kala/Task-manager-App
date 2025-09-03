@@ -26,7 +26,7 @@
   color: #aba9a9;
   cursor: pointer;
 }
-.menu-container .actives{
+.menu-container .menu_title{
     margin-bottom: 40px;
 }
 .menu-container .menu-title:hover {
@@ -44,7 +44,7 @@
   margin-left: 9px;
   transition: all 0.8s ease-in-out;
 }
-.menu-container .active{
+.menu-container .menu{
     display: none;
 }
 .menu-container ul li {
@@ -145,4 +145,3 @@
      top: -4px;
      left: 56px;
 }
-@m
