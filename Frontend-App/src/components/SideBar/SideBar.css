@@ -1,5 +1,5 @@
 /*-------------------- Main-container ------------------------ */
-.side-container {
+.side-container-first {
   background: #fff;
   width: 20.8%;
   height: 90vh;
@@ -8,12 +8,20 @@
   padding: 3px 0px 0px 20px;
   display: flex;
   flex-direction: column;
+  animation: fadeIn 0.5s ease-in-out;
+  
 }
-.open{
-  animation: fadeIn 0.7s forwards;
-}
-.closed {
-  animation: fadeIn 0.7s reverse forwards;
+.side-container-second {
+  background: #fff;
+  width: 20.8%;
+  height: 90vh;
+  margin-top: 3px;
+  border-radius: 7px;
+  padding: 3px 0px 0px 20px;
+  display: flex;
+  flex-direction: column;
+  animation: fadeout 0.5s ease-in-out;
+  
 }
 @keyframes fadeIn {
   from {
@@ -25,7 +33,22 @@
     transform: translateY(0);
   }
 }
-.sub-container {
+@keyframes fadeout {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+.sub-container-first {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.sub-container-second {
   display: flex;
   flex-direction: column;
   gap: 1px;
@@ -180,7 +203,10 @@
 
 /*------------------- Media Queries ------------------------*/
 @media (max-width: 950px) {
-  .side-container {
+  .side-container-first {
+    width: 30.8%;
+  }
+  .side-container-second {
     width: 30.8%;
   }
   .dark-mode {

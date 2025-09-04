@@ -1,7 +1,7 @@
 import { MdNotifications, MdMessage, MdMail } from "react-icons/md";
 import { FaPlus, FaBars } from "react-icons/fa";
 import { Images } from "../../assets/data";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { contextApi } from "../../context/Contextprovider";
 import { useNavigate } from "react-router-dom"
 import "./NavBar.css";
@@ -10,11 +10,14 @@ const NavBar = () => {
   const { ToggleHandel, toggle, isOpen } = useContext(contextApi);
   const [menu, setMenu] = useState(false);
 
-  useEffect(() => {    
+  useEffect(() => {
       if (window.innerWidth > 768) {
-        setMenu(true);
-      } 
+          setMenu(true);
+      }else{
+        setMenu(false);
+      }
   }, []);
+
   return (
 /*---------------------------------- container -----------------------------*/
     <div className="container">

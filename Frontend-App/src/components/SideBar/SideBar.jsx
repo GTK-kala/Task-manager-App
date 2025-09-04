@@ -21,21 +21,29 @@ import { useNavigate } from "react-router-dom";
 import "./SideBar.css";
 
 const SideBar = () => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
+    const navigate = useNavigate();
 
-  const navigate = useNavigate();
-
-  const { MenuFunction, menu, MessageFunction, message, menu_title } =
+    const { MenuFunction, menu, MessageFunction, message, menu_title } =
     useContext(contextApi);
 
-  const [isDarkMode, setIsDarkMode] = useState(false);
+    const [animation, setAnimation] = useState(false);
+    const [isCollapsed, setIsCollapsed] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(false);
+
+
+    const handleAnimationEnd = () => {
+
+        setAnimation((prv) =>  !prv);
+         setTimeout(() => {
+            setIsCollapsed((prv) =>  !prv);
+          }, 400);
+    };
 
   return (
     /*------------------------Main-container ------------------------ */
     <>
       { isCollapsed ? (
-        <div className={`side-container ${isAnimating ? "open" : "closed"}`}>
+        <div className={`${animation ? "side-container-first" : "side-container-second"} `}>
           <div className="sub-container">
             {/*-----------------------Menu-container-------------------------*/}
             <div className="menu-container">
@@ -110,7 +118,7 @@ const SideBar = () => {
         </div>
       ) : <></>}
       <div className="collapse-container">
-        <button onClick={() => setIsCollapsed(!isCollapsed)}>
+        <button onClick={() => {handleAnimationEnd()}}>
           {isCollapsed ? <FaChevronUp /> : <FaChevronDown />}{" "}
         </button>
       </div>
