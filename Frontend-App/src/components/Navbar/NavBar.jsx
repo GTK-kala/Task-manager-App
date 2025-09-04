@@ -16,18 +16,18 @@ const NavBar = () => {
       } 
   }, []);
   return (
-    /*----------------------------container ---------------------------*/
+/*---------------------------------- container -----------------------------*/
     <div className="container">
-      {/* ------------------------ left-container ----------- -----------*/}
+{/* ---------------------------- left-container ----------------------------*/}
       <div className="left-container" onClick={() => navigate("/")}>
         <img src={Images.option_icon} alt="" />
         <h2>ProTasks</h2>
       </div>
-      {/* ------------------------ center-container ----------- -----------*/}
+{/* --------------------------- center-container ---------------------------*/}
       <div className="center-container">
         <h1>Tasks</h1>
       </div>
-      {/* ------------------------ right-container ----------- -----------*/}
+{/* --------------------------- right-container ----------------------------*/}
       {menu ? (
         <div className={`right-container ${toggle}`}>
           <div className={`inner-container ${isOpen}`}>
@@ -52,9 +52,9 @@ const NavBar = () => {
           </div>
         </div>
       ) : (
-        <></>
+        <> </>
       )}
-      {/* ------------------------ menu-icon ----------- -----------*/}
+{/* ---------------------------- menu-icon -----------------------------*/}
       <div className="menuBar-icon">
         <FaBars
           className="icon"

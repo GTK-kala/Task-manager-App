@@ -9,6 +9,22 @@
   display: flex;
   flex-direction: column;
 }
+.open{
+  animation: fadeIn 0.7s forwards;
+}
+.closed {
+  animation: fadeIn 0.7s reverse forwards;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .sub-container {
   display: flex;
   flex-direction: column;
@@ -26,8 +42,8 @@
   color: #aba9a9;
   cursor: pointer;
 }
-.menu-container .menu_title{
-    margin-bottom: 40px;
+.menu-container .menu_title {
+  margin-bottom: 40px;
 }
 .menu-container .menu-title:hover {
   color: #000;
@@ -44,8 +60,8 @@
   margin-left: 9px;
   transition: all 0.8s ease-in-out;
 }
-.menu-container .menu{
-    display: none;
+.menu-container .menu {
+  display: none;
 }
 .menu-container ul li {
   display: flex;
@@ -75,8 +91,8 @@
   align-items: flex-start;
   justify-content: center;
 }
-.message-container .active{
-    display: none;
+.message-container .active {
+  display: none;
 }
 .message-container p {
   font-weight: 300;
@@ -133,32 +149,58 @@
 .settings-container p:hover {
   color: #000;
 }
-.settings-container .dark-mode-container{
-    position: relative;
-    padding-top: 10px; 
-    border-top: 1px solid #d4d2d2;
-    top:-20px;
+.settings-container .dark-mode-container {
+  position: relative;
+  padding-top: 10px;
+  border-top: 1px solid #d4d2d2;
+  top: -20px;
 }
-.settings-container p .toggle-icon{
-     font-size: 23px;
-     position: relative;
-     top: -4px;
-     left: 56px;
+.settings-container p .toggle-icon {
+  font-size: 23px;
+  position: relative;
+  top: -4px;
+  left: 56px;
 }
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   display: none;
 }
-@media  (max-width:950px) {
-  .side-container{
-   width: 30.8%;
+
+/*------------------- collapse-container -------------------*/
+.collapse-container {
+  position: absolute;
+  top: 75px;
+  left: 100px;
+}
+.collapse-container button {
+  background: none;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+}
+
+/*------------------- Media Queries ------------------------*/
+@media (max-width: 950px) {
+  .side-container {
+    width: 30.8%;
   }
-  .dark-mode{
+  .dark-mode {
     display: none;
   }
-  .settings-container p .toggle-icon{
-     font-size: 23px;
-     position: relative;
-     top: -4px;
-     left: 20px;
-}
+  .settings-container p .toggle-icon {
+    font-size: 23px;
+    position: relative;
+    top: -4px;
+    left: 20px;
+  }
+  .collapse-container {
+    position: absolute;
+    top: 75px;
+    left: 80px;
+  }
+  .collapse-container button {
+    background: none;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+  }
 }
