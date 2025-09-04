@@ -1,18 +1,25 @@
 import { MdNotifications, MdMessage, MdMail } from "react-icons/md";
 import { FaPlus, FaBars } from "react-icons/fa";
 import { Images } from "../../assets/data";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { contextApi } from "../../context/Contextprovider";
+import { useNavigate } from "react-router-dom"
 import "./NavBar.css";
 const NavBar = () => {
+  const navigate = useNavigate();
   const { ToggleHandel, toggle, isOpen } = useContext(contextApi);
   const [menu, setMenu] = useState(false);
 
+  useEffect(() => {    
+      if (window.innerWidth > 768) {
+        setMenu(true);
+      } 
+  }, []);
   return (
     /*----------------------------container ---------------------------*/
     <div className="container">
       {/* ------------------------ left-container ----------- -----------*/}
-      <div className="left-container">
+      <div className="left-container" onClick={() => navigate("/")}>
         <img src={Images.option_icon} alt="" />
         <h2>ProTasks</h2>
       </div>

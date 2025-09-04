@@ -1,9 +1,21 @@
 import Home from "./pages/Home"
+import NavBar from './components/Navbar/NavBar'
+import SideBar from './components/SideBar/SideBar'
+import DashBoard from "./pages/DashBoard"
+import TaskPages from "./pages/TaskPages"
+import { Routes , Route } from 'react-router-dom'
+import TaskPage from "./pages/TaskPages"
 
 const App = () => {
   return (
     <>
-      <Home />
+      <NavBar />
+      <SideBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/DashBoard" element={<DashBoard />} />
+        <Route path="/TaskPage" element={<TaskPages />} />
+      </Routes>
     </>
   )
 }

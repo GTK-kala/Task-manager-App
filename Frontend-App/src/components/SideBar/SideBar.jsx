@@ -3,9 +3,12 @@ import { FaGithub, FaToggleOn , FaToggleOff , FaCog , FaMoon} from "react-icons/
 import { SiGmail } from "react-icons/si";
 import { useContext ,useState } from "react";
 import { contextApi } from "../../context/Contextprovider";
+import { useNavigate } from "react-router-dom";
 import './SideBar.css'
 
 const SideBar = () => {
+
+    const navigate = useNavigate();
 
      const { MenuFunction , menu , MessageFunction , 
              message , menu_title } = useContext(contextApi);
@@ -20,11 +23,11 @@ const SideBar = () => {
             <div className="menu-container">
                <p className={`menu-title ${menu_title}`} onClick={()=>{MenuFunction()}}>MENU</p>
                <ul className={menu}>
-                   <li>
+                   <li onClick={() => navigate("/DashBoard")}>
                     <FaTh className="icons"/>
                     <span>Dashboard</span>
                    </li>
-                   <li>
+                   <li onClick={() => navigate("/TaskPages")}>
                     <FaCheckSquare className="icons"/>
                     <span>Tasks</span>
                    </li>
