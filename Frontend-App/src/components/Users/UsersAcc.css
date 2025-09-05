@@ -1,6 +1,133 @@
-.users-acc-container {
-  padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #eee;
-  border-radius: 5px;
+/* Full page center layout */
+.users-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f4f6f9;
+}
+
+/* Card container */
+.user-acc-container {
+  background: #fff;
+  position: relative;
+  top: 45px;
+  padding: 30px 40px;
+  padding-top: 5px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+.inside-container form{
+    position: relative;
+    left: -10px;
+}
+.title-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 25px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Input container */
+.input-box {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px 10px;
+  font-size: 16px;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  background: none;
+}
+
+.input-box label {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.3s ease;
+  background: white;
+  padding: 0 4px;
+}
+
+/* Floating label effect */
+.input-box input:focus + label,
+.input-box input:not(:placeholder-shown) + label {
+  top: -8px;
+  font-size: 12px;
+  color: #007bff;
+}
+
+.input-box input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Button */
+.submit-btn {
+  width: 105%;
+  padding: 12px;
+  font-size: 16px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background: #0056b3;
+}
+
+/* User Accounts section */
+.outside-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.outside-container h2 {
+  font-size: 18px;
+  color: #555;
+  font-weight: 500;
+}
+.forgot-password {
+  text-align: right;
+  margin-bottom: 15px;
+}
+
+.forgot-password a {
+  font-size: 14px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+.switch-container {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+
+.switch-container span {
+  color: #007bff;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.switch-container span:hover {
+  text-decoration: underline;
 }

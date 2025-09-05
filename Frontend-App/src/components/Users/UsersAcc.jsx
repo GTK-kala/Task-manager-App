@@ -1,10 +1,67 @@
+import { useState } from "react";
+import "./UsersAcc.css";
 
 const UsersAcc = () => {
-  return (
-    <div className="users-acc-container">
-        <h1>Users Account</h1>
-    </div>
-  )
-}
 
-export default UsersAcc
+    const [hasAccount, setHasAccount] = useState(false); 
+
+  return (
+   <div className="users-container">
+      <div className="user-acc-container">
+        <div className="title-container">
+          <h2>{hasAccount ? "Login" : "signup"}</h2>
+        </div>
+
+        <div className="inside-container">
+          <form action="" method="post">
+            {/* Show name field only if creating account */}
+            {!hasAccount && (
+              <div className="input-box">
+                <input type="text" id="name" placeholder=" " required />
+                <label htmlFor="name">Name</label>
+              </div>
+            )}
+
+            <div className="input-box">
+              <input type="email" id="email" placeholder=" " required />
+              <label htmlFor="email">Email</label>
+            </div>
+
+            <div className="input-box">
+              <input type="password" id="password" placeholder=" " required />
+              <label htmlFor="password">Password</label>
+            </div>
+
+            {/* Forgot password for login only */}
+            {hasAccount && (
+              <div className="forgot-password">
+                <a href="#">Forgot Password?</a>
+              </div>
+            )}
+
+            <button type="submit" className="submit-btn">
+              {hasAccount ? "Login" : "Create Account"}
+            </button>
+          </form>
+        </div>
+
+        {/* Toggle between login and signup */}
+        <div className="switch-container">
+          {hasAccount ? (
+            <p>
+              Don’t have an account?{" "}
+              <span onClick={() => setHasAccount(false)}>Create one</span>
+            </p>
+          ) : (
+            <p>
+              Already have an account?{" "}
+              <span onClick={() => setHasAccount(true)}>Login</span>
+            </p>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default UsersAcc;

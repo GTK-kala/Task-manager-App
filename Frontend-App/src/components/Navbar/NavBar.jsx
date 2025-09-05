@@ -47,7 +47,7 @@ const NavBar = () => {
                 <MdMessage className="icon message" />
                 <span className="badge">5</span>
               </div>
-              <div className="icon-wrapper">
+              <div className="icon-wrapper" onClick={() => navigate("/account")}>
                 <FaUserCircle className="icon message" />
               </div>
             </div>
