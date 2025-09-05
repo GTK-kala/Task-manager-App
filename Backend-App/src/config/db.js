@@ -1,4 +1,3 @@
-import { app } from '../app.js';
 import mysql2 from 'mysql2'
 
 const connection = mysql2.createConnection({
@@ -22,7 +21,6 @@ const createTableUser =`CREATE TABLE USERS(
                   email VARCHAR(100) not null,
                   password VARCHAR(255) not null
                 )`;
-
                 connection.query(createTableUser, (err, result) => {
                     if (err) {
                         console.log(err);
@@ -30,7 +28,7 @@ const createTableUser =`CREATE TABLE USERS(
                         console.log("Table created");
                     }
                 });
-    const createTableTask =`CREATE TABLE TASKS(
+const createTableTask =`CREATE TABLE TASKS(
                   task_id INT AUTO_INCREMENT PRIMARY KEY,
                   user_id INT,
                   title VARCHAR(100) not null,
@@ -40,22 +38,12 @@ const createTableUser =`CREATE TABLE USERS(
                   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                   FOREIGN KEY (user_id) REFERENCES USERS(user_id)
                 )`;
+                connection.query(createTableTask, (err, result) => {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        console.log("Table created");
+                    }
+                });
 
-                connection.query(createTableTask, (err, result) => {
-                    if (err) {
-                        console.log(err);
-                    } else {
-                        console.log("Table created");
-                    }
-                });
-                connection.query(createTableTask, (err, result) => {
-                    if (err) {
-                        console.log(err);
-                    } else {
-                        console.log("Table created");
-                    }
-                });
-app.get('/',(req,res) =>{
-    res.send('Table is created');
-})
 export default connection;

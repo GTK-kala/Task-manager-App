@@ -1,5 +1,5 @@
 import { MdNotifications, MdMessage, MdMail } from "react-icons/md";
-import { FaPlus, FaBars } from "react-icons/fa";
+import { FaPlus, FaBars, FaUser, FaUserCircle  } from "react-icons/fa";
 import { Images } from "../../assets/data";
 import { useContext, useEffect, useState } from "react";
 import { contextApi } from "../../context/Contextprovider";
@@ -48,8 +48,7 @@ const NavBar = () => {
                 <span className="badge">5</span>
               </div>
               <div className="icon-wrapper">
-                <MdMail className="icon mail" />
-                <span className="badge">2</span>
+                <FaUserCircle className="icon message" />
               </div>
             </div>
           </div>
