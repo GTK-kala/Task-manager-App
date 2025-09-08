@@ -30,13 +30,13 @@
 }
 .title-container h2 {
   position: relative;
-  left: 20px;
-  font-size: 25px;
+  left: 15px;
+  font-size: 28px;
   color: #333;
   font-weight: 600;
 }
 .title-container .close-btn {
-  font-size: 24px;
+  font-size: 22px;
   cursor: pointer;
   background: none;
   border: none;

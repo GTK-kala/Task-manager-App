@@ -1,180 +1,52 @@
-/*---------------------------- container ---------------------------*/
-.container {
+.navbar-container {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  border: 1px solid rgb(238, 238, 238);
-  border-radius: 8px;
-  background-color: #fff;
-}
-
-/*---------------------------- left-container ---------------------------*/
-.left-container {
-  display: flex;
   align-items: center;
-  margin-left: 40px;
-  width: 220px;
-  border-right: 0.6px solid #f0e4e4;
-}
-
-.left-container img {
-  width: 30px;
-  height: 40px;
-  margin-right: 7px;
-  cursor: pointer;
-}
-
-.left-container h2 {
-  color: rgb(156, 10, 156);
-  cursor: pointer;
-}
-
-/*---------------------------- center-container ---------------------------*/
-.center-container {
-  align-self: flex-start;
-  margin-right: auto;
-  margin-left: 180px;
-}
-
-/*---------------------------- right-container ----------------------------*/
-.right-container{
-    position: relative;
-    left: -40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-/* -------------------------- inner-container ----------------------------*/
-.inner-container{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.inner-container button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgb(156, 10, 156);
-  border: 1px solid rgb(156, 10, 156);
-  padding: 8px 10px;
-  border-radius: 12px;
-  background: linear-gradient(to right, rgb(156, 10, 156) 50%, white 50%);
-  background-size: 200% 100%;
-  background-position: right bottom;
-  transition: background-position 0.5s ease, color 0.5s ease;
-  cursor: pointer;
-}
-
-.inner-container button:hover {
-  background-position: left bottom;
-  color: white; 
-}
-
-.inner-container button .icon {
+  padding: 12px 20px;
+  background: #fff;
   position: relative;
-  left: -2px;
 }
 
-.inner-container button p {
-  margin: 5px;
-  position: relative;
-  font-size: 16px;
-  left: 2px;
-}
-
-.icon-container {
-  margin-left: 25px;
-  display: flex;
-  gap: 35px;
-  font-size: 28px;
-}
-
-.icon-wrapper {
-  position: relative;
-  cursor: pointer;
-}
-
-.icon {
-  transition: transform 0.2s;
-}
-.icon:hover {
-  transform: scale(1.2);
-}
-
-.bell,
-.message,
-.mail {
-  color: rgb(156, 10, 156);
-}
-
-.badge {
-  position: absolute;
-  top: -3px;
-  right: -2px;
-  background: rgb(205, 47, 47);
-  color: white;
-  font-size: 10px;
-  padding: 1px 3px;
-  border-radius: 60%;
-}
-/*------------------------ menuBar-icon ---------------------------*/
+/* Hide menu bar icon on big screen */
 .menuBar-icon {
   display: none;
+  cursor: pointer;
+  font-size: 24px;
 }
 
-/* ----------------------Media Queries ---------------------------*/
+/* Right container (desktop default) */
+.right-container {
+  display: flex;
+  align-items: center;
+}
 
-@media screen and (max-width: 970px)  {
+/* --- Mobile styles --- */
+@media (max-width: 768px) {
+  /* Hide normal right-container */
+  .right-container {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    width: 220px;
+    padding: 20px;
+    opacity: 0;
+    transform: translateX(100%);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    box-shadow: -2px 0 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* When open */
+  .right-container.open {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+
+  /* Show menu bar icon */
   .menuBar-icon {
     display: block;
-    position: relative;
-    right: 50px;
-  }
-  .menuBar-icon .icon{
-    font-size: 28px;
-    color: rgb(156, 10, 156);
-    cursor: pointer;
-  }
-  .container{
-    display: flex;  
-  }
-  .left-container{
-    position: relative;
-    left: -30px;
-    padding-right: 20px;
-  }
-  .center-container{
-    position: relative;
-    right: 155px;
-    padding-left: 20px;
-  }
- .clicked {
-    position: absolute;
-    padding: 20px 20px 20px 0px;
-    top: 95px;
-    left: 295px;
-    border-radius: 20px;
-    background-color: #eaeaea;
-    animation: fade-in 0.6s ease-in-out;
-  }
- @keyframes fade-in {
-  to{
-   opacity: 1;
-   transform: translateX(0px);
-  }
-  from{
-    opacity: 0;
-    transform: translateX(70px);
-  }
-}
-  .open {
-    display: flex;
-    position: relative;
-    left: -8px;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 17px;
-    justify-content: space-between;
   }
 }
