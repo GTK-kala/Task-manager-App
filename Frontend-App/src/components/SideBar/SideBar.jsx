@@ -23,7 +23,7 @@ import "./SideBar.css";
 const SideBar = () => {
     const navigate = useNavigate();
 
-    const { MenuFunction, menu, MessageFunction, message, menu_title } =
+    const { MenuFunction, menu, MessageFunction, message, menu_title , ToggleDisplay } =
     useContext(contextApi);
 
     const [animation, setAnimation] = useState(false);

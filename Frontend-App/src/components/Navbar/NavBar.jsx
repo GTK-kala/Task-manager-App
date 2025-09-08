@@ -1,5 +1,5 @@
-import { MdNotifications, MdMessage, MdMail } from "react-icons/md";
-import { FaPlus, FaBars, FaUser, FaUserCircle  } from "react-icons/fa";
+import { MdNotifications, MdMessage } from "react-icons/md";
+import { FaPlus, FaBars, FaUserCircle  } from "react-icons/fa";
 import { Images } from "../../assets/data";
 import { useContext, useEffect, useState } from "react";
 import { contextApi } from "../../context/Contextprovider";
@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom"
 import "./NavBar.css";
 const NavBar = () => {
   const navigate = useNavigate();
-  const { ToggleHandel, toggle, isOpen } = useContext(contextApi);
+  const { ToggleHandel, toggle, isOpen  , ToggleDisplay} = useContext(contextApi);
   const [menu, setMenu] = useState(false);
 
   useEffect(() => {
@@ -47,7 +47,7 @@ const NavBar = () => {
                 <MdMessage className="icon message" />
                 <span className="badge">5</span>
               </div>
-              <div className="icon-wrapper" onClick={() => navigate("/account")}>
+              <div className="icon-wrapper" onClick={() => {navigate("/account"), ToggleDisplay()}}>
                 <FaUserCircle className="icon message" />
               </div>
             </div>

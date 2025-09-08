@@ -1,15 +1,24 @@
-import { useState } from "react";
+import { useState , useContext } from "react";
+import { contextApi } from "../../context/Contextprovider";
+import { FaTimes } from "react-icons/fa";
 import "./UsersAcc.css";
 
 const UsersAcc = () => {
 
-    const [hasAccount, setHasAccount] = useState(false); 
+  const {display, ToggleDisplay} = useContext(contextApi);  
 
-  return (
-   <div className="users-container">
+  const [hasAccount, setHasAccount] = useState(false);
+  
+
+  return display ?  (
+    <div className="users-container">
       <div className="user-acc-container">
         <div className="title-container">
           <h2>{hasAccount ? "Login" : "signup"}</h2>
+          <button className="close-btn"
+            onClick={() => {ToggleDisplay();}}>
+            <FaTimes />
+          </button>
         </div>
 
         <div className="inside-container">
@@ -61,7 +70,7 @@ const UsersAcc = () => {
         </div>
       </div>
     </div>
-  );
+  ) : null;
 };
 
 export default UsersAcc;
