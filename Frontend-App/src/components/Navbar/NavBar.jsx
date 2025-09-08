@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaBars, FaPlus, FaUserCircle } from "react-icons/fa";
 import { MdNotifications, MdMessage } from "react-icons/md";
+import { contextApi } from "../../context/Contextprovider";
 import { useNavigate } from "react-router-dom";
-import { Images} from "../../assets/data" 
-import './NavBar.css'
+import { Images } from "../../assets/data";
+import "./NavBar.css";
 
-const  Navbar = () => {
+const Navbar = () => {
+
   const navigate = useNavigate();
+  const  { ToggleDisplay } = useContext(contextApi)
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -27,26 +30,26 @@ const  Navbar = () => {
       {/* ---------------- Right (menu) ---------------- */}
       <div className={`right-container ${isOpen ? "open" : ""}`}>
         <div className="inner-container">
-          <button>
+          <button className="Create-btn" onClick={() => setIsOpen(!isOpen)}>
             <FaPlus className="icon" />
             <p>Create Tasks</p>
           </button>
           <div className="icon-container">
             <div className="icon-wrapper">
-              <MdNotifications className="icon bell" />
+              <MdNotifications className="icon bell" onClick={() => setIsOpen(!isOpen)}/>
               <span className="badge">3</span>
             </div>
             <div className="icon-wrapper">
-              <MdMessage className="icon message" />
+              <MdMessage className="icon message" onClick={() => setIsOpen(!isOpen)}/>
               <span className="badge">5</span>
             </div>
-            <div
-              className="icon-wrapper"
-              onClick={() => {
-                navigate("/account");
-              }}
-            >
-              <FaUserCircle className="icon user" />
+            <div className="icon-wrapper">
+              <FaUserCircle
+                className="icon-user"
+                onClick={() => {
+                  navigate("/accounts") , setIsOpen(!isOpen) , ToggleDisplay();
+                }}
+              />
             </div>
           </div>
         </div>
@@ -58,6 +61,6 @@ const  Navbar = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Navbar
+export default Navbar;

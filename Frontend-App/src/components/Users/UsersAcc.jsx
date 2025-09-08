@@ -7,7 +7,7 @@ const UsersAcc = () => {
 
   const {display, ToggleDisplay} = useContext(contextApi);  
 
-  const [hasAccount, setHasAccount] = useState(false);
+  const [hasAccount, setHasAccount] = useState();
   
 
   return display ?  (

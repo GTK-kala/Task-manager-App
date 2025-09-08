@@ -1,6 +1,6 @@
 import UsersAcc from "../components/Users/UsersAcc"
 
-const account = () => {
+const Accounts = () => {
   return (
     <>
         <UsersAcc />
@@ -8,4 +8,4 @@ const account = () => {
   )
 }
 
-export default account
+export default Accounts

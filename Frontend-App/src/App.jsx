@@ -6,6 +6,7 @@ import { Routes , Route } from 'react-router-dom'
 import TaskPages from "./pages/TaskPages"
 import Accounts from "./pages/Accounts"
 
+
 const App = () => {
   return (
     <>
@@ -15,7 +16,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/DashBoard" element={<DashBoard />} />
         <Route path="/TaskPage" element={<TaskPages />} />
-        <Route path="/account" element={<Accounts />} />
+        <Route path="/accounts" element={<Accounts />} />
       </Routes>
     </>
   )

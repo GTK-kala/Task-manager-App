@@ -5,8 +5,6 @@ const Contextprovider = (props) => {
   const [menu, setMenu] = useState("");
   const [message, setMessage] = useState("");
   const [menu_title, setMenuTitle] = useState(" ");
-  const [toggle, setToggle] = useState("");
-  const [isOpen, setIsOpen] = useState("");
   const [display, setDisplay] = useState(false);
 
   const MenuFunction = () => {
@@ -27,16 +25,6 @@ const Contextprovider = (props) => {
     }
   };
 
-  const ToggleHandel = () => {
-    if (toggle === "") {
-      setToggle("clicked");
-      setIsOpen("open");
-    } else {
-      setToggle("");
-      setIsOpen("");
-    }
-  };
-
   const ToggleDisplay = () => {
     if (display === true) {
       setDisplay(false);
@@ -51,9 +39,6 @@ const Contextprovider = (props) => {
     MessageFunction,
     message,
     menu_title,
-    ToggleHandel,
-    toggle,
-    isOpen,
     display,
     ToggleDisplay
   };

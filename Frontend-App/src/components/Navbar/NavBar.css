@@ -2,9 +2,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 20px;
-  background: #fff;
-  position: relative;
+  border: 1px solid rgb(238, 238, 238);
+  border-radius: 8px;
+  background-color: #fff;
 }
 
 /* Hide menu bar icon on big screen */
@@ -14,39 +14,174 @@
   font-size: 24px;
 }
 
-/* Right container (desktop default) */
-.right-container {
+/*---------------------------- left-container ---------------------------*/
+.left-container {
   display: flex;
   align-items: center;
+margin-left: 30px;
+padding-right: 97px;
+  border-right: 0.6px solid #f0e4e4;
+}
+
+.left-container img {
+  width: 30px;
+  height: 40px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.left-container h2 {
+  color: rgb(156, 10, 156);
+  cursor: pointer;
+}
+
+.center-container{
+  margin-right: auto;
+  margin-left: 150px;
+}
+
+/*---------------------------- right-container ----------------------------*/
+.right-container {
+  position: relative;
+  left: -40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* -------------------------- inner-container ----------------------------*/
+.inner-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inner-container button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(156, 10, 156);
+  border: 1px solid rgb(156, 10, 156);
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: linear-gradient(to right, rgb(156, 10, 156) 50%, white 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: background-position 0.5s ease, color 0.5s ease;
+  cursor: pointer;
+}
+
+.inner-container button:hover {
+  background-position: left bottom;
+  color: white;
+}
+
+.inner-container button .icon {
+  position: relative;
+  left: -2px;
+}
+
+.inner-container button p {
+  margin: 5px;
+  position: relative;
+  font-size: 16px;
+  left: 2px;
+}
+
+.icon-container {
+  margin-left: 25px;
+  display: flex;
+  gap: 35px;
+  font-size: 28px;
+}
+
+.icon-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.icon,
+.icon-user {
+  transition: transform 0.2s;
+}
+.icon:hover {
+  transform: scale(1.2);
+}
+.icon-user:hover {
+  transform: scale(1.2);
+}
+
+.bell,
+.icon-user,
+.message,
+.mail {
+  color: rgb(156, 10, 156);
+}
+
+.badge {
+  position: absolute;
+  top: -3px;
+  right: -2px;
+  background: rgb(205, 47, 47);
+  color: white;
+  font-size: 10px;
+  padding: 1px 3px;
+  border-radius: 60%;
 }
 
 /* --- Mobile styles --- */
 @media (max-width: 768px) {
+  .navbar-container {
+    display: flex;
+  }
+  .left-container {
+    margin-left: 20px;
+    padding-right: 20px;
+  }
+
   /* Hide normal right-container */
   .right-container {
     position: absolute;
-    top: 60px;
-    right: 0;
-    background: white;
-    flex-direction: column;
-    width: 220px;
-    padding: 20px;
+    padding: 20px 20px 20px 4px;
+    top: 98px;
+    left: 290px;
+    border-radius: 20px;
+    background-color: #dddddd;
     opacity: 0;
     transform: translateX(100%);
     pointer-events: none;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
     box-shadow: -2px 0 6px rgba(0, 0, 0, 0.1);
   }
-
+.center-container{
+  margin-right: auto;
+  margin-left: 75px;
+}
   /* When open */
   .right-container.open {
     opacity: 1;
     transform: translateX(0);
     pointer-events: auto;
   }
+  .inner-container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+  }
+  .icon-container {
+    position: relative;
+    left: -6px;
+  }
+  .Create-btn {
+    position: relative;
+    left: 6px;
+  }
 
   /* Show menu bar icon */
   .menuBar-icon {
+    position: relative;
+    right: 30px;
     display: block;
+    color: rgb(156, 10, 156);
   }
 }
