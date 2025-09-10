@@ -17,6 +17,8 @@ const App = () => {
         <Route path="/DashBoard" element={<DashBoard />} />
         <Route path="/TaskPage" element={<TaskPages />} />
         <Route path="/accounts" element={<Accounts />} />
+        <Route path="/TaskPage/:id" element={<TaskPages />} />
+        <Route path="*" element={<h1>404 Not Found</h1>} />
       </Routes>
     </>
   )

@@ -30,7 +30,7 @@ const Navbar = () => {
       {/* ---------------- Right (menu) ---------------- */}
       <div className={`right-container ${isOpen ? "open" : ""}`}>
         <div className="inner-container">
-          <button className="Create-btn" onClick={() => setIsOpen(!isOpen)}>
+          <button className="Create-btn" onClick={() => {setIsOpen(!isOpen) , navigate("/TaskPage")}}>
             <FaPlus className="icon" />
             <p>Create Tasks</p>
           </button>
