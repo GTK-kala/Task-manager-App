@@ -13,6 +13,7 @@
   top: 45px;
   padding: 30px 40px;
   padding-top: 5px;
+  padding-bottom: 15px;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   width: 100%;
@@ -79,7 +80,7 @@
 /* Floating label effect */
 .input-box input:focus + label,
 .input-box input:not(:placeholder-shown) + label {
-  top: -8px;
+  top: -3px;
   font-size: 12px;
   color: #007bff;
 }
