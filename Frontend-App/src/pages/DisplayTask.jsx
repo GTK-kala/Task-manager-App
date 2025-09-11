@@ -1,5 +1,4 @@
 import Tasks from '../components/DisplayTasks/Tasks'
-
 const DisplayTask = () => {
   return (
     <>

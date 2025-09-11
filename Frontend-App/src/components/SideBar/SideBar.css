@@ -1,17 +1,8 @@
-.sidebar {
-  position: fixed;
-  top: 70px;
-  left: 0;
-  height: 100%;
-  width: 250px;  /* expanded */
-  transition: width 0.3s ease, transform 0.3s ease;
-  z-index: 1000;
-}
-
-
 /*-------------------- Main-container ------------------------ */
 .side-container-first {
+  position: fixed;
   background: #fff;
+  z-index: 100;
   width: 20.8%;
   height: 90vh;
   margin-top: 3px;
@@ -37,21 +28,21 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateX(-10px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 @keyframes fadeout {
   from {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
   to {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateX(-10px);
   }
 }
 .sub-container-first {

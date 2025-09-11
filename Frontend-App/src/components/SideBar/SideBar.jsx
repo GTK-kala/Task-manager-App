@@ -4,7 +4,7 @@ import {
   FaFacebookMessenger,
   FaDiscord,
   FaSlack,
-  FaChevronUp ,
+  FaAngleDoubleLeft ,
 } from "react-icons/fa";
 import {
   FaGithub,
@@ -12,7 +12,7 @@ import {
   FaToggleOff,
   FaCog,
   FaMoon,
-  FaChevronDown,
+  FaAngleDoubleRight,
 } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import { useContext, useState } from "react";
@@ -41,7 +41,7 @@ const SideBar = () => {
 
   return (
     /*------------------------Main-container ------------------------ */
-    <div className={`sidebar ${ToggleDisplay}`}>
+    <>
       { isCollapsed ? (
         <div className={`${animation ? "side-container-first" : "side-container-second"} `}>
           <div className="sub-container">
@@ -119,10 +119,10 @@ const SideBar = () => {
       ) : <></>}
       <div className="collapse-container">
         <button onClick={() => {handleAnimationEnd()}}>
-          {isCollapsed ? <FaChevronUp /> : <FaChevronDown />}{" "}
+          {isCollapsed ? <FaAngleDoubleLeft /> : <FaAngleDoubleRight  />}{" "}
         </button>
       </div>
-    </div>
+    </>
   );
 };
 
