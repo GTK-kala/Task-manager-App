@@ -5,6 +5,7 @@ import DashBoard from "./pages/DashBoard"
 import { Routes , Route } from 'react-router-dom'
 import TaskPages from "./pages/TaskPages"
 import Accounts from "./pages/Accounts"
+import DisplayTask from "./pages/DisplayTask"
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/DashBoard" element={<DashBoard />} />
         <Route path="/TaskPage" element={<TaskPages />} />
         <Route path="/accounts" element={<Accounts />} />
+        <Route path="/Tasks" element={<DisplayTask />} />
         <Route path="/TaskPage/:id" element={<TaskPages />} />
         <Route path="*" element={<h1>404 Not Found</h1>} />
       </Routes>

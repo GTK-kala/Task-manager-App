@@ -41,7 +41,7 @@ const SideBar = () => {
 
   return (
     /*------------------------Main-container ------------------------ */
-    <>
+    <div className={`sidebar ${ToggleDisplay}`}>
       { isCollapsed ? (
         <div className={`${animation ? "side-container-first" : "side-container-second"} `}>
           <div className="sub-container">
@@ -60,7 +60,7 @@ const SideBar = () => {
                   <FaTh className="icons" />
                   <span>Dashboard</span>
                 </li>
-                <li onClick={() => navigate("/TaskPages")}>
+                <li onClick={() => navigate("/Tasks")}>
                   <FaCheckSquare className="icons" />
                   <span>Tasks</span>
                 </li>
@@ -122,7 +122,7 @@ const SideBar = () => {
           {isCollapsed ? <FaChevronUp /> : <FaChevronDown />}{" "}
         </button>
       </div>
-    </>
+    </div>
   );
 };
 
