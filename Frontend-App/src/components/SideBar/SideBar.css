@@ -10,8 +10,7 @@
   padding: 3px 0px 0px 20px;
   display: flex;
   flex-direction: column;
-  animation: fadeIn 0.5s ease-in-out;
-  
+  animation: fadeIn 0.3s ease-in-out;
 }
 .side-container-second {
   background: #fff;
@@ -22,8 +21,7 @@
   padding: 3px 0px 0px 20px;
   display: flex;
   flex-direction: column;
-  animation: fadeout 0.5s ease-in-out;
-  
+  animation: fadeout 0.4s ease-in-out;
 }
 @keyframes fadeIn {
   from {
@@ -192,9 +190,10 @@
 
 /*------------------- collapse-container -------------------*/
 .collapse-container {
-  position: absolute;
-  top: 75px;
-  left: 100px;
+  position: fixed;
+  top: 70px;
+  left: 110px;
+  z-index: 100;
 }
 .collapse-container button {
   background: none;
@@ -221,9 +220,10 @@
     left: 20px;
   }
   .collapse-container {
-    position: absolute;
-    top: 75px;
-    left: 80px;
+    position: fixed;
+    top: 70px;
+    left: 85px;
+    z-index: 100;
   }
   .collapse-container button {
     background: none;
