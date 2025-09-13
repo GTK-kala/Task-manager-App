@@ -3,7 +3,7 @@
   position: fixed;
   background: #fff;
   z-index: 100;
-  width: 20.8%;
+  width: 20.5%;
   height: 90vh;
   margin-top: 3px;
   border-radius: 7px;
@@ -14,7 +14,7 @@
 }
 .side-container-second {
   background: #fff;
-  width: 20.8%;
+  width: 20.5%;
   height: 90vh;
   margin-top: 3px;
   border-radius: 7px;
@@ -205,10 +205,10 @@
 /*------------------- Media Queries ------------------------*/
 @media (max-width: 950px) {
   .side-container-first {
-    width: 30.8%;
+    width: 31.4%;
   }
   .side-container-second {
-    width: 30.8%;
+    width: 31.4%;
   }
   .dark-mode {
     display: none;

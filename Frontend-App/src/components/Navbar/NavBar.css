@@ -42,6 +42,10 @@
   margin-right: auto;
   margin-left: 150px;
 }
+.center-container h1 {
+  font-size: 22px;
+  cursor: pointer;
+}
 
 /*---------------------------- right-container ----------------------------*/
 .right-container {

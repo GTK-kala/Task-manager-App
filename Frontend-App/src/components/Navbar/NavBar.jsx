@@ -24,7 +24,7 @@ const Navbar = () => {
 
       {/* ---------------- Center ---------------- */}
       <div className="center-container">
-        <h1>Tasks</h1>
+        <h1 onClick={() => navigate("/Hero")}>Tasks</h1>
       </div>
 
       {/* ---------------- Right (menu) ---------------- */}
