@@ -40,11 +40,15 @@
 
 .center-container {
   margin-right: auto;
-  margin-left: 150px;
+  margin-left: 120px;
 }
 .center-container h1 {
-  font-size: 22px;
+  font-size: 32px;
   cursor: pointer;
+}
+.center-container h1:hover {
+  color: rgb(156, 10, 156);
+  transition: color 0.5s ease;
 }
 
 /*---------------------------- right-container ----------------------------*/

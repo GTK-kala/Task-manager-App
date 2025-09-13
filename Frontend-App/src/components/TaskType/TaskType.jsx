@@ -1,35 +1,37 @@
-import { FaPlus , FaEllipsisH } from "react-icons/fa";
+import { FaPlus, FaEllipsisH } from "react-icons/fa";
 import "./TaskType.css";
 const TaskType = () => {
   return (
-// ---------------------Task Type Container----------------------
+    // ---------------------Task Type Container---------------------
     <div className="task-type-container">
-{/*---------------------Task Type -----------------------------*/}
+      {/*---------------------Task Type -----------------------------*/}
       <div className="task-type">
-{/*---------------------Task Type in progress -----------------*/}
-        <h3 className="task-type-first">
-          <span className="task-type-label">in Progress ({0})</span>
+        {/*---------------------Task Type in progress -----------------*/}
+        <h4 className="task-type-header in-progress">
+          <span className="task-type-label">In Progress (0)</span>
           <span className="icons-container">
-            <FaPlus className="icon" />
-          <FaEllipsisH className="icon" />
+            <FaPlus className="icon add" />
+            <FaEllipsisH className="icon menu" />
           </span>
-        </h3>
-{/*---------------------Task Type Completed -----------------*/}
-        <h3 className="task-type-second">
-          <span className="task-type-label">Completed ({0})</span>
+        </h4>
+
+        {/*---------------------Task Type Completed -----------------*/}
+        <h4 className="task-type-header completed">
+          <span className="task-type-label">Completed (0)</span>
           <span className="icons-container">
-            <FaPlus className="icon" />
-            <FaEllipsisH className="icon" />
+            <FaPlus className="icon add" />
+            <FaEllipsisH className="icon menu" />
           </span>
-        </h3>
-{/*---------------------Task Type in Review -----------------*/}
-        <h3 className="task-type-third">
-          <span className="task-type-label">in Review ({0})</span>
+        </h4>
+
+        {/*---------------------Task Type in Review -----------------*/}
+        <h4 className="task-type-header review">
+          <span className="task-type-label">In Review (0)</span>
           <span className="icons-container">
-            <FaPlus className="icon" />
-            <FaEllipsisH className="icon" />
+            <FaPlus className="icon add" />
+            <FaEllipsisH className="icon menu" />
           </span>
-        </h3>
+        </h4>
       </div>
     </div>
   );
