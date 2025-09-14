@@ -43,25 +43,28 @@
 }
 
 .task-type-header:hover {
-  transform: translateY(-3px);
+  transform: scale(1.05);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
 /* Custom colors for each type */
 .task-type-header.in-progress {
   border-left: 6px solid #f39c12;
+  border-right: 6px solid #f39c12;
 }
 
 .task-type-header.completed {
-  border-left: 6px solid #27ae60;
+  border-left: 6px solid #27ae60; 
+  border-right: 6px solid #27ae60; 
 }
 
 .task-type-header.review {
   border-left: 6px solid #2980b9;
+  border-right: 6px solid #2980b9;
 }
 
 .task-type-label {
-  color: #7f8c8d;
+  color: #686868;
   flex-grow: 1;
 }
 
@@ -118,9 +121,9 @@
   .task-type {
     flex-direction: column;
     margin-right: auto;
-    left: 200px;
+    left: 260px;
     width: 45%;
-    gap: 30px;
+    gap: 25px;
   }
 
   .task-type-header {

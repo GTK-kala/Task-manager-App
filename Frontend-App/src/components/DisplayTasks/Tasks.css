@@ -16,16 +16,14 @@
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
-  transform: translateY(20px);
   opacity: 0;
-  animation: fadeInUp 0.5s forwards;
-  animation-delay: calc(var(--i, 0) * 0.1s); /* staggered */
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: fadeInUp 0.8s forwards;
+  animation-delay: calc(var(--i, 0) * 0.1s);
 }
 
 .task-card:hover {
-  transform: scale(1.2);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(10, 9, 9, 0.12);
 }
 
 /* Header */
