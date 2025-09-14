@@ -57,7 +57,7 @@ const Navbar = () => {
 
       {/* ---------------- Hamburger ---------------- */}
       <div className="menuBar-icon" onClick={toggleMenu}>
-        <FaBars className="icon" />
+        <FaBars className="icons" />
       </div>
     </div>
   );

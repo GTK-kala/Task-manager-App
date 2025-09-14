@@ -110,11 +110,11 @@
   cursor: pointer;
 }
 
-.icon,
+.icons,
 .icon-user {
   transition: transform 0.2s;
 }
-.icon:hover {
+.icons:hover {
   transform: scale(1.2);
 }
 .icon-user:hover {
@@ -130,8 +130,8 @@
 
 .badge {
   position: absolute;
-  top: -3px;
-  right: -2px;
+  top: 2px;
+  right: -5px;
   background: rgb(205, 47, 47);
   color: white;
   font-size: 10px;
@@ -154,7 +154,7 @@
     position: absolute;
     padding: 20px 20px 20px 4px;
     top: 98px;
-    left: 290px;
+    left: 305px;
     border-radius: 20px;
     background-color: #dddddd;
     opacity: 0;
