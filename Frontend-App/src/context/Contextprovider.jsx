@@ -6,11 +6,13 @@ const Contextprovider = (props) => {
   const [message, setMessage] = useState("");
   const [menu_title, setMenuTitle] = useState(" ");
   const [display, setDisplay] = useState(false);
+  const [animation, setAnimation] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   const MenuFunction = () => {
     if (menu === "") {
-        setMenu("menu");
-        setMenuTitle("menu_title");
+      setMenu("menu");
+      setMenuTitle("menu_title");
     } else {
       setMenu("");
       setMenuTitle("");
@@ -28,9 +30,16 @@ const Contextprovider = (props) => {
   const ToggleDisplay = () => {
     if (display === true) {
       setDisplay(false);
-    }else{
+    } else {
       setDisplay(true);
     }
+  };
+
+  const handleAnimationEnd = () => {
+    setAnimation((prv) => !prv);
+    setTimeout(() => {
+      setIsCollapsed((prv) => !prv);
+    }, 400);
   };
 
   const contextValue = {
@@ -40,7 +49,11 @@ const Contextprovider = (props) => {
     message,
     menu_title,
     display,
-    ToggleDisplay
+    ToggleDisplay,
+    animation,
+    isCollapsed,
+    handleAnimationEnd
+
   };
 
   return (

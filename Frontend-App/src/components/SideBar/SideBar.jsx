@@ -23,21 +23,10 @@ import "./SideBar.css";
 const SideBar = () => {
     const navigate = useNavigate();
 
-    const { MenuFunction, menu, MessageFunction, message, menu_title , ToggleDisplay } =
+    const { MenuFunction, menu, MessageFunction, message, menu_title , animation, isCollapsed , handleAnimationEnd } =
     useContext(contextApi);
 
-    const [animation, setAnimation] = useState(false);
-    const [isCollapsed, setIsCollapsed] = useState(false);
     const [isDarkMode, setIsDarkMode] = useState(false);
-
-
-    const handleAnimationEnd = () => {
-
-        setAnimation((prv) =>  !prv);
-         setTimeout(() => {
-            setIsCollapsed((prv) =>  !prv);
-          }, 400);
-    };
 
   return (
     /*------------------------Main-container ------------------------ */
@@ -56,11 +45,11 @@ const SideBar = () => {
                 MENU
               </p>
               <ul className={menu}>
-                <li onClick={() => navigate("/DashBoard")}>
+                <li onClick={() => {navigate("/DashBoard") , handleAnimationEnd()}}>
                   <FaTh className="icons" />
                   <span>Dashboard</span>
                 </li>
-                <li onClick={() => navigate("/Tasks")}>
+                <li onClick={() =>{navigate("/Tasks"), handleAnimationEnd()}}>
                   <FaCheckSquare className="icons" />
                   <span>Tasks</span>
                 </li>
