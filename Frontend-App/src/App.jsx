@@ -8,7 +8,6 @@ import Accounts from "./pages/Accounts"
 import DisplayTask from "./pages/DisplayTask"
 import Hero from "./pages/Hero/Hero"
 
-
 const App = () => {
   return (
     <>
