@@ -30,7 +30,7 @@ const Navbar = () => {
       {/* ---------------- Right (menu) ---------------- */}
       <div className={`right-container ${isOpen ? "open" : ""}`}>
         <div className="inner-container">
-          <button className="Create-btn" onClick={() => {setIsOpen(!isOpen) , navigate("/TaskPage")}}>
+          <button className="Create-btn" onClick={() => {setIsOpen(!isOpen) , navigate("/TaskPage") , ToggleDisplay()}}>
             <FaPlus className="icon" />
             <p>Create Tasks</p>
           </button>
