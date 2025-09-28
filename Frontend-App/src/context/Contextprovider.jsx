@@ -3,6 +3,9 @@ import { createContext, useState } from "react";
 export const contextApi = createContext(null);
 const Contextprovider = (props) => {
   const [menu, setMenu] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [menu_title, setMenuTitle] = useState(" ");
   const [display, setDisplay] = useState(false);
@@ -42,6 +45,20 @@ const Contextprovider = (props) => {
     }, 400);
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Send data to Express API (not directly to MySQL!)
+    const response = await fetch("http://localhost:3001/api/users", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email }),
+    });
+
+    const data = await response.json();
+    console.log(data); // server response
+  };
+
   const contextValue = {
     MenuFunction,
     menu,
@@ -52,8 +69,11 @@ const Contextprovider = (props) => {
     ToggleDisplay,
     animation,
     isCollapsed,
-    handleAnimationEnd
-
+    handleAnimationEnd,
+    setName,
+    setEmail,
+    setPassword,
+    handleSubmit
   };
 
   return (
