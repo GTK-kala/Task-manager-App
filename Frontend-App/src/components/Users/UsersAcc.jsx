@@ -22,22 +22,22 @@ const UsersAcc = () => {
         </div>
 
         <div className="inside-container">
-          <form action="" method="post">
+          <form action="http://localhost:3001/Users/acc" method="post">
             {/* Show name field only if creating account */}
             {!hasAccount && (
               <div className="input-box">
-                <input type="text" id="name" placeholder=" " required />
+                <input type="text" id="name" placeholder=" " required name="name"/>
                 <label htmlFor="name">Name</label>
               </div>
             )}
 
             <div className="input-box">
-              <input type="email" id="email" placeholder=" " required />
+              <input type="email" id="email" placeholder=" " required name="email" />
               <label htmlFor="email">Email</label>
             </div>
 
             <div className="input-box">
-              <input type="password" id="password" placeholder=" " required />
+              <input type="password" id="password" placeholder=" " required name="password"/>
               <label htmlFor="password">Password</label>
             </div>
 
