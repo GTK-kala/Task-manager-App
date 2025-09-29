@@ -46,17 +46,17 @@ const Contextprovider = (props) => {
   };
 
   const handleSubmit = async (e) => {
+
     e.preventDefault();
 
-    // Send data to Express API (not directly to MySQL!)
     const response = await fetch("http://localhost:3001/api/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email }),
+      body: JSON.stringify({ name , email , password }),
     });
 
     const data = await response.json();
-    console.log(data); // server response
+    console.log(data);
   };
 
   const contextValue = {
@@ -70,10 +70,10 @@ const Contextprovider = (props) => {
     animation,
     isCollapsed,
     handleAnimationEnd,
+    handleSubmit,
     setName,
     setEmail,
     setPassword,
-    handleSubmit
   };
 
   return (

@@ -4,7 +4,7 @@ import { FaTimes } from "react-icons/fa";
 import "./UsersAcc.css";
 
 const UsersAcc = () => {
-  const { display, ToggleDisplay,setName, setEmail,setPassword,handleSubmit } = useContext(contextApi);
+  const { display, ToggleDisplay, setName, setEmail, setPassword, handleSubmit } = useContext(contextApi);
 
   const [hasAccount, setHasAccount] = useState();
 
@@ -24,7 +24,7 @@ const UsersAcc = () => {
         </div>
 
         <div className="inside-container">
-          <form onSubmit={() => handleSubmit}>
+          <form onSubmit={() => handleSubmit() }>
             {/* Show name field only if creating account */}
             {!hasAccount && (
               <div className="input-box">
