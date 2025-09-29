@@ -9,8 +9,10 @@ const app = express();
     extended: true
  }));
 
+ app.use('/api' , route);
+
 app.listen(port, ()=>{
     console.log(`app is listening on port ${port}!!`)
 });
 
-app.use('/Users' , route);
+
