@@ -1,8 +1,9 @@
 import express from 'express';
-import { AddUsers } from '../controllers/user.js'
+import { AddUsers , upDateUser} from '../controllers/user.js'
 
 const route = express.Router();
 
 route.post('/users' , AddUsers);
+route.get('/users/:id' , upDateUser);
 
 export default route
