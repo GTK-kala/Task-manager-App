@@ -1,9 +1,20 @@
-import express from 'express';
-import { AddUsers , upDateUser} from '../controllers/user.js'
+import express from "express";
+import {
+  DisplayUsers,
+  DisplayUser,
+  DisplayUserlimit,
+  AddUsers,
+  upDateUser,
+  DeleteUser,
+} from "../controllers/user.js";
 
 const route = express.Router();
 
-route.post('/users' , AddUsers);
-route.get('/users/:id' , upDateUser);
+route.get("/users", DisplayUsers);
+route.get("/users/:id", DisplayUser);
+route.get("/users", DisplayUserlimit);
+route.post("/users", AddUsers);
+route.put("/users/:id", upDateUser);
+route.delete("/users/:id", DeleteUser);
 
-export default route
+export default route;

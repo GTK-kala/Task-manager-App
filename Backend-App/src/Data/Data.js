@@ -1,45 +1,66 @@
 export const users = [
   {
+    id: 1,
     name: "John Doe",
     email: "john.doe@example.com",
     password: "JohnPass123"
   },
   {
+    id: 2,
     name: "Alice Smith",
     email: "alice.smith@example.com",
     password: "AliceSecure456"
   },
   {
+    id: 3,
     name: "Michael Johnson",
     email: "michael.johnson@example.com",
     password: "MikePwd789"
   },
   {
+    id: 4,
     name: "Emma Brown",
     email: "emma.brown@example.com",
     password: "Emma!Pass321"
   },
   {
+    id: 5,
     name: "David Wilson",
     email: "david.wilson@example.com",
     password: "DavidPass654"
   },
   {
+    id: 6,
     name: "Sophia Martinez",
     email: "sophia.martinez@example.com",
     password: "Sophia#987"
   },
   {
+    id: 7,
     name: "James Taylor",
     email: "james.taylor@example.com",
     password: "James_111"
   },
   {
+    id: 8,
     name: "Olivia Anderson",
     email: "olivia.anderson@example.com",
     password: "Olivia$222"
+  },
+  {
+    id: 9,
+    name: "Ethan Carter",
+    email: "ethan.carter@example.com",
+    password: "EthanPass333"
+  },
+  {
+    id: 10,
+    name: "Liam Scott",
+    email: "liam.scott@example.com",
+    password: "LiamPass444"
   }
 ];
+
 export const tasks = [
   {
     title: "Design homepage UI",
