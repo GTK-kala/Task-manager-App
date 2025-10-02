@@ -1,4 +1,6 @@
 import express from "express";
+
+// Users
 import {
   DisplayUsers,
   DisplayUser,
@@ -6,15 +8,25 @@ import {
   AddUsers,
   upDateUser,
   DeleteUser,
-} from "../controllers/user.js";
+} from "../controllers/Users.js";
+
+// Tasks
+import { DisplayTasks , DisplayTask , SomeTasks} from "../controllers/Tasks.js";
 
 const route = express.Router();
 
+// Users Routes
 route.get("/users", DisplayUsers);
 route.get("/users/:id", DisplayUser);
-route.get("/users", DisplayUserlimit);
+route.get("/users/some", DisplayUserlimit);
 route.post("/users", AddUsers);
 route.put("/users/:id", upDateUser);
 route.delete("/users/:id", DeleteUser);
+
+// Tasks Routes
+route.get("/tasks" , DisplayTasks);
+route.get("/tasks/:id" , DisplayTask);
+route.get("/tasks/some" , SomeTasks);
+
 
 export default route;

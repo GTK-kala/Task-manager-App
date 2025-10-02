@@ -12,7 +12,7 @@ export const DisplayUser = (req,res) =>{
     let user = users.find(user => user.id === id);
     if(!user){
       return res.status(400).json({
-        message : 'Fill the id!!!'
+        message : `User not Found with this id ${id}`
       });
     };
     res.status(200).json(user);
