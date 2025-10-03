@@ -109,8 +109,10 @@ export const tasks = [
     description: "Improve MySQL queries for faster response",
     status: "in-progress",
     user_id: 8
-  },
-  {
+  }
+];
+
+ const New_tasks = [ {
     title: "Deploy app to Heroku",
     description: "Push backend and frontend to cloud server",
     status: "pending",
@@ -122,4 +124,4 @@ export const tasks = [
     status: "completed",
     user_id: 2
   }
-];
+ ]

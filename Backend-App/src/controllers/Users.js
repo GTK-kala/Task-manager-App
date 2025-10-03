@@ -22,12 +22,12 @@ export const DisplayUser = (req,res) =>{
 // Display some of users data using id
 export const DisplayUserlimit = (req,res) =>{
    const limit = req.query.limit;
-    let user = users.slice(0, limit);
-    if(!user){
-      return res.status(400).json({
-        message : 'Fill the id!!!'
+   if(!users){
+     return res.status(400).json({
+       message : 'Fill the id!!!'
       });
     };
+    let user = users.slice(0, limit);
     res.status(200).json(user);
 };
 

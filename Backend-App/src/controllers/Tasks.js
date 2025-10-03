@@ -19,13 +19,28 @@ export const DisplayTask = (req, res) => {
 
 // Display some Tasks from the Database
 export const SomeTasks = (req, res) => {
-  const limit = parseInt(req.query.limit);
-  console.log(limit);
-  let Tasks = tasks.slice(0, limit);
+  const limit = req.query.limit;
   if (limit <= 0 || limit > tasks.length) {
     return res.status(400).json({
       message: `Task with this id ${id} is not found!`,
     });
   }
+  let Tasks = tasks.slice(0, limit);
   res.status(200).json(Tasks);
+};
+
+export const AddTasks = (req, res) => {
+  const New_Task = {
+    title: req.body.title,
+    description: req.body.description,
+    status: req.body.status,
+    user_id: tasks.length,
+  };
+  if (!New_Task) {
+    return res.status(400).json({
+      message: "please full fill the requirements",
+    });
+  }
+  tasks.push(New_Task);
+  res.status(200).json(tasks);
 };

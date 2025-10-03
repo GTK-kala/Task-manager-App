@@ -3,7 +3,7 @@ import express from "express";
 // Users
 import {
   DisplayUsers,
-  DisplayUser,
+   DisplayUser,
   DisplayUserlimit,
   AddUsers,
   upDateUser,
@@ -11,7 +11,7 @@ import {
 } from "../controllers/Users.js";
 
 // Tasks
-import { DisplayTasks , DisplayTask , SomeTasks} from "../controllers/Tasks.js";
+import { DisplayTasks , DisplayTask , SomeTasks , AddTasks} from "../controllers/Tasks.js";
 
 const route = express.Router();
 
@@ -19,7 +19,7 @@ const route = express.Router();
 route.get("/users", DisplayUsers);
 route.get("/users/:id", DisplayUser);
 route.get("/users/some", DisplayUserlimit);
-route.post("/users", AddUsers);
+route.post("/users/new", AddUsers);
 route.put("/users/:id", upDateUser);
 route.delete("/users/:id", DeleteUser);
 
@@ -27,6 +27,7 @@ route.delete("/users/:id", DeleteUser);
 route.get("/tasks" , DisplayTasks);
 route.get("/tasks/:id" , DisplayTask);
 route.get("/tasks/some" , SomeTasks);
+route.post("/tasks/new" , AddTasks)
 
 
 export default route;
