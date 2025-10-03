@@ -29,6 +29,7 @@ export const SomeTasks = (req, res) => {
   res.status(200).json(Tasks);
 };
 
+// ADDING NEW Tasks using POST Route
 export const AddTasks = (req, res) => {
   const New_Task = {
     title: req.body.title,
@@ -43,4 +44,38 @@ export const AddTasks = (req, res) => {
   }
   tasks.push(New_Task);
   res.status(200).json(tasks);
+  console.log("Data Added Successfully");
+};
+
+// UPDATE Tasks using PUT Route
+export const upDateTask = (req, res) => {
+  const id = parseInt(req.params.id);
+  const { title, description, status } = req.body;
+  let Task = tasks.find((task) => task.user_id === id);
+  if (id < 0 || id > tasks.length) {
+    return res.status(400).json({
+      message: `Task with this id ${id} is not found!`,
+    });
+  }
+  if (title || description || status) {
+    Task.title = title;
+    Task.description = description;
+    Task.status = status;
+  }
+  res.status(200).json(tasks);
+  console.log("Data Updated Successfully");
+};
+
+
+// DELETE Tasks using DELETE Route
+export const DeleteTask = (req, res) => {
+  const id = parseInt(req.params.id);
+  let Task = tasks.filter((task) => task.user_id !== id);
+  if (id < 0 || id > tasks.length) {
+    return res.status(400).json({
+      message: `Task with this id ${id} is not found!`,
+    });
+  };
+  res.status(200).json(Task);
+  console.log("Data Deleted Successfully");
 };

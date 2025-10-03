@@ -3,7 +3,7 @@ import express from "express";
 // Users
 import {
   DisplayUsers,
-   DisplayUser,
+  DisplayUser,
   DisplayUserlimit,
   AddUsers,
   upDateUser,
@@ -11,7 +11,14 @@ import {
 } from "../controllers/Users.js";
 
 // Tasks
-import { DisplayTasks , DisplayTask , SomeTasks , AddTasks} from "../controllers/Tasks.js";
+import {
+  DisplayTasks,
+  DisplayTask,
+  SomeTasks,
+  AddTasks,
+  upDateTask,
+  DeleteTask,
+} from "../controllers/Tasks.js";
 
 const route = express.Router();
 
@@ -24,10 +31,11 @@ route.put("/users/:id", upDateUser);
 route.delete("/users/:id", DeleteUser);
 
 // Tasks Routes
-route.get("/tasks" , DisplayTasks);
-route.get("/tasks/:id" , DisplayTask);
-route.get("/tasks/some" , SomeTasks);
-route.post("/tasks/new" , AddTasks)
-
+route.get("/tasks", DisplayTasks);
+route.get("/tasks/:id", DisplayTask);
+route.get("/tasks/some", SomeTasks);
+route.post("/tasks/new", AddTasks);
+route.put("/tasks/:id", upDateTask);
+route.delete("/tasks/:id", DeleteTask);
 
 export default route;
