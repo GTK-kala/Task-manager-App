@@ -2,7 +2,6 @@ import { createContext, useState } from "react";
 
 export const contextApi = createContext(null);
 const Contextprovider = (props) => {
-
   const [menu, setMenu] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -47,17 +46,23 @@ const Contextprovider = (props) => {
   };
 
   const handleSubmit = async (e) => {
-
     e.preventDefault();
 
-    const response = await fetch("http://localhost:3001/api/users/new", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, email, password }),
-    });
+    try {
+      const response = await fetch("http://localhost:3001/api/users/new", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, email, password }),
+      });
 
-    const data = await response.json();
-    console.log(data);
+      const data = await response.json();
+      console.log("Server response:", data);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+    setUsername("");
+    setEmail("");
+    setPassword("");
   };
 
   const contextValue = {
@@ -73,8 +78,11 @@ const Contextprovider = (props) => {
     handleAnimationEnd,
     handleSubmit,
     setUsername,
+    username,
     setEmail,
+    email,
     setPassword,
+    password
   };
 
   return (

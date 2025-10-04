@@ -1,10 +1,20 @@
-import { useState , useContext } from "react";
+import { useState, useContext } from "react";
 import { contextApi } from "../../context/Contextprovider";
 import { FaTimes } from "react-icons/fa";
 import "./UsersAcc.css";
 
 const UsersAcc = () => {
-  const { display, ToggleDisplay, setUsername, setEmail, setPassword, handleSubmit } = useContext(contextApi);
+  const {
+    display,
+    ToggleDisplay,
+    setUsername,
+    setEmail,
+    setPassword,
+    handleSubmit,
+    username,
+    email,
+    password,
+  } = useContext(contextApi);
 
   const [hasAccount, setHasAccount] = useState();
 
@@ -24,7 +34,7 @@ const UsersAcc = () => {
         </div>
 
         <div className="inside-container">
-          <form onSubmit={() => handleSubmit() }>
+          <form onSubmit={handleSubmit}>
             {/* Show name field only if creating account */}
             {!hasAccount && (
               <div className="input-box">
@@ -34,6 +44,7 @@ const UsersAcc = () => {
                   placeholder=" "
                   required
                   name="username"
+                  value={username}
                   onChange={(e) => setUsername(e.target.value)}
                 />
                 <label htmlFor="name">Name</label>
@@ -47,6 +58,7 @@ const UsersAcc = () => {
                 placeholder=" "
                 required
                 name="email"
+                value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
               <label htmlFor="email">Email</label>
@@ -59,6 +71,7 @@ const UsersAcc = () => {
                 placeholder=" "
                 required
                 name="password"
+                value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
               <label htmlFor="password">Password</label>
