@@ -20,3 +20,11 @@
 - 📊 **Kanban Board** – drag & drop tasks between columns  
 - 👥 **User Roles Ready** – extendable for teams and permissions  
 - ⚡ **RESTful API** – clean and well-structured endpoints  
+---
+
+## 🛠 Tech Stack
+
+| Frontend | Backend | Database | Auth | Tools |
+|----------|---------|----------|------|-------|
+| ⚛️ React | 🟢 Node.js | 🐬 MySQL | 🔑 JWT | 🛠 Nodemon, Dotenv |
+| 📦 Axios, React Router, React Query, DnD | ⚡ Express, bcrypt | | | |
