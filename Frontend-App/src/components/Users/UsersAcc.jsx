@@ -1,10 +1,10 @@
-import { useState, useContext } from "react";
+import { useState , useContext } from "react";
 import { contextApi } from "../../context/Contextprovider";
 import { FaTimes } from "react-icons/fa";
 import "./UsersAcc.css";
 
 const UsersAcc = () => {
-  const { display, ToggleDisplay, setName, setEmail, setPassword, handleSubmit } = useContext(contextApi);
+  const { display, ToggleDisplay, setUsername, setEmail, setPassword, handleSubmit } = useContext(contextApi);
 
   const [hasAccount, setHasAccount] = useState();
 
@@ -33,8 +33,8 @@ const UsersAcc = () => {
                   id="name"
                   placeholder=" "
                   required
-                  name="name"
-                  onChange={(e) => setName(e.target.value)}
+                  name="username"
+                  onChange={(e) => setUsername(e.target.value)}
                 />
                 <label htmlFor="name">Name</label>
               </div>

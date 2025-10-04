@@ -2,8 +2,9 @@ import { createContext, useState } from "react";
 
 export const contextApi = createContext(null);
 const Contextprovider = (props) => {
+
   const [menu, setMenu] = useState("");
-  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -49,10 +50,10 @@ const Contextprovider = (props) => {
 
     e.preventDefault();
 
-    const response = await fetch("http://localhost:3001/api/users", {
+    const response = await fetch("http://localhost:3001/api/users/new", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name , email , password }),
+      body: JSON.stringify({ username, email, password }),
     });
 
     const data = await response.json();
@@ -71,7 +72,7 @@ const Contextprovider = (props) => {
     isCollapsed,
     handleAnimationEnd,
     handleSubmit,
-    setName,
+    setUsername,
     setEmail,
     setPassword,
   };
