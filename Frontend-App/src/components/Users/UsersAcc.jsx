@@ -1,6 +1,7 @@
-import { useState, useContext } from "react";
 import { contextApi } from "../../context/Contextprovider";
+import { useState, useContext } from "react";
 import { FaTimes } from "react-icons/fa";
+import { toast } from "react-toastify";
 import "./UsersAcc.css";
 
 const UsersAcc = () => {
@@ -18,6 +19,10 @@ const UsersAcc = () => {
 
   const [hasAccount, setHasAccount] = useState();
 
+  const handletoast = () =>{
+    toast.success('User Add Successfully !!!');
+  };
+
   return display ? (
     <div className="users-container">
       <div className="user-acc-container">
@@ -32,7 +37,7 @@ const UsersAcc = () => {
             <FaTimes />
           </button>
         </div>
-
+      
         <div className="inside-container">
           <form onSubmit={handleSubmit}>
             {/* Show name field only if creating account */}
@@ -84,7 +89,7 @@ const UsersAcc = () => {
               </div>
             )}
 
-            <button type="submit" className="submit-btn">
+            <button type="submit" className="submit-btn" onClick={() => handletoast()}>
               {hasAccount ? "Login" : "Create Account"}
             </button>
           </form>
