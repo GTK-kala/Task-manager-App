@@ -1,0 +1,135 @@
+/* ========== GENERAL CONTAINER ========== */
+.user-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 60px 20px;
+  font-family: "Poppins", sans-serif;
+  /* background: linear-gradient(135deg, #eef2f3 0%, #dfe9f3 100%); */
+  color: #2d3436;
+}
+
+/* ========== TITLE ========== */
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #1e272e;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+/* ========== INPUT FIELD ========== */
+.input-group {
+  width: 100%;
+  max-width: 350px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid #cfd6e1;
+  outline: none;
+  background-color: #ffffff;
+  font-size: 1rem;
+  color: #2f3640;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #4b7bec;
+  box-shadow: 0 0 10px rgba(75, 123, 236, 0.25);
+}
+
+/* ========== FETCH BUTTON ========== */
+.fetch-btn {
+  background: linear-gradient(135deg, #4b7bec, #3867d6);
+  color: #fff;
+  border: none;
+  padding: 14px 35px;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(75, 123, 236, 0.4);
+}
+
+.fetch-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(75, 123, 236, 0.5);
+  background: linear-gradient(135deg, #5b8efc, #4974ea);
+}
+
+.fetch-btn:disabled {
+  background: #a5b1c2;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ========== DATA DISPLAY ========== */
+.data-container {
+  margin-top: 40px;
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.user-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 25px 30px;
+  width: 100%;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 5px solid #4b7bec;
+  text-align: left;
+  animation: FeDine 0.5s ease-in-out;
+}
+@keyframes FeDine {
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.user-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+}
+
+.user-card h3 {
+  color: #273c75;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.user-card p {
+  color: #485460;
+  margin: 6px 0;
+  font-size: 1rem;
+}
+
+.user-card p span {
+  color: #1e3799;
+  font-weight: 500;
+}
+
+.no-data {
+  color: #747d8c;
+  font-size: 1.1rem;
+  margin-top: 20px;
+}

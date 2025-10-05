@@ -1,59 +1,65 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
+import "./TestUser.css";
 
 const TestUser = () => {
-  const [user_id, setId] = useState("");
-  const [user, setUser] = useState(null);
-  const handleSearch = async () => {
-    let id = parseInt(user_id);
+  const [user_id, setUserId] = useState("");
+  const [users, setUsers] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const fetchUsers = async () => {
+    setLoading(true);
     try {
-      const res = await fetch(`http://localhost:3001/api/users/${id}`);
-      if (!res.ok) {
-        throw new Error("Failed to fetch user");
+      const res = await fetch(`http://localhost:3001/api/users/${user_id}`);
+      const data = await res.json();
+      if (data.result) {
+        setUsers(data.result);
+        console.log(data.result);
       } else {
-        const data = await res.json();
-        if (!data.result) {
-          toast.error("User not found");
-          setUser(null);
-        } else {
-          setUser(data.result);
-          toast.success("User found");
-        }
+        setUsers([]);
+        toast.error("No user found!");
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
+    } finally {
+      setLoading(false);
     }
   };
+
   return (
-    <div>
-      <div>
-        <h2>🔍 Find User by ID</h2>
+    <div className="user-container">
+      <h2 className="title">🔍 Fetch User by ID</h2>
+
+      <div className="input-group">
         <input
           type="number"
-          placeholder="Enter user ID"
+          placeholder="Enter User ID..."
           value={user_id}
-          onChange={(e) => setId(e.target.value)}
+          onChange={(e) => setUserId(e.target.value)}
         />
+      </div>
 
-        {user && (
-          <div style={{ marginTop: "10px" }}>
-            <h4>User Found:</h4>
+      <button
+        onClick={() => fetchUsers()}
+        disabled={loading}
+        className="fetch-btn"
+      >
+        {loading ? "Loading..." : "Fetch User"}
+      </button>
+
+      <div className="data-container">
+        {users ? (
+          <div key={users.user_id} className="user-card">
+            <h3>Name : {users.username}</h3>
             <p>
-              <b>ID:</b> {user.id}
+              📧 Email: <span>{users.email}</span>
             </p>
             <p>
-              <b>Username:</b> {user.username}
-            </p>
-            <p>
-              <b>Email:</b> {user.email}
-            </p>
-            <p>
-              <b>Password:</b> {user.password}
+              🔒 Password: <span>{users.password}</span>
             </p>
           </div>
-        )}
+        ) : null}
       </div>
-      <button onClick={handleSearch}>Search</button>
     </div>
   );
 };
