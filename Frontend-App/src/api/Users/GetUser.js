@@ -1,7 +1,7 @@
 
-export const handleSearch = async (userId) => {
+export const handleSearch = async () => {
   try {
-    const res = await fetch(`http://localhost:3001/api/users/${userId}`);
+    const res = await fetch(`http://localhost:3001/api/users/7`);
     if (!res.ok) {
       throw new Error("Failed to fetch user");
     } else {

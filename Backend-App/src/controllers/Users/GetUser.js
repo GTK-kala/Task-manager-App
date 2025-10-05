@@ -1,6 +1,5 @@
 import connection from "../../config/db.js";
 
-
 // GET USERS FROM THE DATABASE
 export const GetUser = (req, res) => {
   const userId = parseInt(req.params.id);
@@ -14,8 +13,8 @@ export const GetUser = (req, res) => {
     } else {
       res.status(200).json({
         message: "User retrieved",
-        result: result,
+        result: result[0], // send only one user
       });
-    };
+    }
   });
 };
