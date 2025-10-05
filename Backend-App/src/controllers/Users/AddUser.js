@@ -1,7 +1,7 @@
-import connection from "../config/db.js";
+import connection from "../../config/db.js";
 
 // ADD USERS TO THE DATABASE
-export const AddUsers = (req, res) => {
+export const AddUser = (req, res) => {
   
   const { username, email, password } = req.body;
 

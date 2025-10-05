@@ -1,13 +1,14 @@
 import express from "express";
 
 // Users
-import { AddUsers } from "../controllers/Users.js";
+import { AddUser } from "../controllers/Users/AddUser.js";
+import { GetUser } from "../controllers/Users/GetUser.js";
 
 
 const route = express.Router();
 
-
-route.post("/users/new", AddUsers);
+route.get("/users/:id", GetUser);
+route.post("/users/new", AddUser);
 
 
 export default route;
