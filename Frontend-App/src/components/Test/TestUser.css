@@ -49,7 +49,7 @@
 
 /* ========== FETCH BUTTON ========== */
 .fetch-btn {
-  background: linear-gradient(135deg, #4b7bec, #3867d6);
+  /* background: linear-gradient(135deg, #4b7bec, #3867d6); */
   color: #fff;
   border: none;
   padding: 14px 35px;

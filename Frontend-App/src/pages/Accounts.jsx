@@ -6,7 +6,7 @@ const Accounts = () => {
   return (
     <>
         <UsersAcc />
-        <ToastContainer position="top-right" autoClose={500} />
+        <ToastContainer position="top-right" autoClose={1000} />
     </>
   )
 }

@@ -1,6 +1,6 @@
 import connection from "../../config/db.js";
 
-// GET USERS FROM THE DATABASE
+// GET ONE USER FROM THE DATABASE
 export const GetUser = (req, res) => {
   const userId = parseInt(req.params.id);
   let sql = "SELECT * FROM users WHERE user_id = ?";
