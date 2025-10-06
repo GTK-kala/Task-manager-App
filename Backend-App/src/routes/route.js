@@ -8,6 +8,8 @@ import { UpdateUser } from "../controllers/Users/UpdateUser.js";
 import { DeleteUser } from "../controllers/Users/DeleteUser.js";
 
 // Tasks
+import { GetTasks } from "../controllers/Tasks/GetTasks.js";
+import { GetTask } from "../controllers/Tasks/GetTask.js";
 import { AddTask } from "../controllers/Tasks/AddTask.js";
 
 const route = express.Router();
@@ -20,6 +22,8 @@ route.put("/users/:id", UpdateUser);
 route.delete("/users/:id", DeleteUser)
 
 // TASKS ROUTES
+route.get("/tasks", GetTasks);
+route.get("/tasks/:id", GetTask);
 route.post("/tasks/new", AddTask);
 
 
