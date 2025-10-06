@@ -10,6 +10,7 @@ const app = express();
  app.use(express.urlencoded({
     extended: true
  }));
+ app.use(express.static('src/Public'));
 
  app.use('/api' , route);
 
