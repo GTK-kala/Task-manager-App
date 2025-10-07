@@ -11,6 +11,9 @@ import { DeleteUser } from "../controllers/Users/DeleteUser.js";
 import { GetTasks } from "../controllers/Tasks/GetTasks.js";
 import { GetTask } from "../controllers/Tasks/GetTask.js";
 import { AddTask } from "../controllers/Tasks/AddTask.js";
+import { UpdateTask } from "../controllers/Tasks/UpDateTask.js";
+import { DeleteTask } from "../controllers/Tasks/DeleteTask.js";
+
 
 const route = express.Router();
 
@@ -18,13 +21,15 @@ const route = express.Router();
 route.get("/users/:id", GetUser);
 route.get("/users", GetUsers);
 route.post("/users/new", AddUser);
-route.put("/users/:id", UpdateUser);
-route.delete("/users/:id", DeleteUser)
+route.put("/users/update/:id", UpdateUser);
+route.delete("/users/delete/:id", DeleteUser);
 
 // TASKS ROUTES
 route.get("/tasks", GetTasks);
-route.get("/tasks/:id", GetTask);
+route.get("/tasks/:user_id/:task_id", GetTask);
 route.post("/tasks/new", AddTask);
+route.put("/tasks/update/:user_id/:task_id", UpdateTask);
+route.delete("/tasks/delete/:user_id/:task_id", DeleteTask);
 
 
 
