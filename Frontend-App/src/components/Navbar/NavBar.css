@@ -1,6 +1,6 @@
 .navbar-container {
   position: sticky;
-  top: 8px;
+  top: 0px;
   display: flex;
   z-index: 100;
   justify-content: space-between;

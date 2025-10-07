@@ -18,9 +18,13 @@ const Tasks = () => {
   };
 
   const FilterTasks = (id) => {
-    setTaskList(prevTasks => prevTasks.filter(task => task.id !== id));
+    if(taskList.length === 0) {
+      toast.error("No tasks available to delete");
+      return;
+    };
+    const UpDateTasks = taskList.filter((task) => task.task_id !== id);
+    setTaskList(UpDateTasks);
     toast.success("Task deleted successfully");
-    console.log(id);
   };
 
   useEffect(() => {
@@ -40,10 +44,10 @@ const Tasks = () => {
 
           <div className="task-footer">
             <small>
-              Due:{" "}
-              {task.due_date
-                ? new Date(task.due_date).toLocaleDateString()
-                : "No deadline"}
+              Created At:{" "}
+              {task.created_at
+                ? new Date(task.created_at).toLocaleDateString()
+                : "No date available"}
             </small>
             <div className="task-actions">
               <button className="edit" onClick={() => navigate("/TaskPage")}>
