@@ -1,14 +1,14 @@
 import { FaPlus, FaEllipsisH } from "react-icons/fa";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "./TaskType.css";
 const TaskType = () => {
+  const navigate = useNavigate();
   const [taskList, setTaskList] = useState([]);
   const [count1, setCount1] = useState(0);
   const [count2, setCount2] = useState(0);
   const [count3, setCount3] = useState(0);
-  const navigate = useNavigate();
 
   const proFun = async () => {
     try {
@@ -100,7 +100,7 @@ const TaskType = () => {
               In Progress ({count1})
             </span>
             <span className="icons-container">
-              <FaPlus className="icon add" />
+              <FaPlus className="icon add" onClick={() => navigate("/TaskPage")}/>
               <FaEllipsisH className="icon menu" />
             </span>
           </h4>
@@ -111,7 +111,7 @@ const TaskType = () => {
               Completed ({count2})
             </span>
             <span className="icons-container">
-              <FaPlus className="icon add" />
+              <FaPlus className="icon add" onClick={() => navigate("/TaskPage")}/>
               <FaEllipsisH className="icon menu" />
             </span>
           </h4>
@@ -122,7 +122,7 @@ const TaskType = () => {
               In Review ({count3})
             </span>
             <span className="icons-container">
-              <FaPlus className="icon add" />
+              <FaPlus className="icon add" onClick={() => navigate("/TaskPage")}/>
               <FaEllipsisH className="icon menu" />
             </span>
           </h4>

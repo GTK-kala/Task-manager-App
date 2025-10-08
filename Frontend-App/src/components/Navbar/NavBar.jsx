@@ -10,9 +10,13 @@ const Navbar = () => {
 
   const navigate = useNavigate();
   const  { ToggleDisplay } = useContext(contextApi)
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const [isOpen , setIsOpen] = useState(false)
+  // const [isOpen1, setIsOpen1] = useState(false);
+  // const [isOpen2, setIsOpen2] = useState(false);
+  
+   const toggleMenu = () => setIsOpen(!isOpen)
+  // const toggleMenu1 = () => setIsOpen1(!isOpen1);
+  // const toggleMenu2 = () => setIsOpen2(!isOpen2);
 
   return (
     <div className="navbar-container">
@@ -30,25 +34,24 @@ const Navbar = () => {
       {/* ---------------- Right (menu) ---------------- */}
       <div className={`right-container ${isOpen ? "open" : ""}`}>
         <div className="inner-container">
-          <button className="Create-btn" onClick={() => {setIsOpen(!isOpen) , navigate("/TaskPage") , ToggleDisplay()}}>
+          <button className="Create-btn" onClick={() => { navigate("/TaskPage") , ToggleDisplay() , toggleMenu()}}>
             <FaPlus className="icon" />
             <p>Create Tasks</p>
           </button>
           <div className="icon-container">
             <div className="icon-wrapper">
-              <MdNotifications className="icon bell" onClick={() => setIsOpen(!isOpen)}/>
+              <MdNotifications className="icon bell"/>
               <span className="badge">3</span>
             </div>
             <div className="icon-wrapper">
-              <MdMessage className="icon message" onClick={() => setIsOpen(!isOpen)}/>
+              <MdMessage className="icon message"/>
               <span className="badge">5</span>
             </div>
             <div className="icon-wrapper">
               <FaUserCircle
                 className="icon-user"
                 onClick={() => {
-                  navigate("/accounts") , setIsOpen(!isOpen) , ToggleDisplay();
-                }}
+                  navigate("/accounts") , toggleMenu()}}
               />
             </div>
           </div>
