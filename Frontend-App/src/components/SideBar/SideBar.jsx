@@ -59,23 +59,23 @@ const SideBar = () => {
             <div className="message-container">
               <p onClick={() => MessageFunction()}>MESSAGE</p>
               <ul className={message}>
-                <li>
+                <li onClick={() => handleAnimationEnd()}>
                   <FaGithub />
                   <span> GitHub</span>
                 </li>
-                <li>
+                <li onClick={() => handleAnimationEnd()}>
                   <FaFacebookMessenger />
                   <span>Messenger</span>
                 </li>
-                <li>
+                <li onClick={() => handleAnimationEnd()}>
                   <SiGmail />
                   <span>Gmail</span>
                 </li>
-                <li>
+                <li onClick={() => handleAnimationEnd()}>
                   <FaSlack />
                   <span>Slack</span>
                 </li>
-                <li>
+                <li onClick={() => handleAnimationEnd()}>
                   <FaDiscord />
                   <span>Discord</span>
                 </li>
@@ -83,7 +83,7 @@ const SideBar = () => {
             </div>
             {/*-----------------------Settings-container-------------------------*/}
             <div className="settings-container">
-              <p>
+              <p onClick={() => handleAnimationEnd()}>
                 <FaCog className="settings-icon" />
                 <span>Settings</span>
               </p>
