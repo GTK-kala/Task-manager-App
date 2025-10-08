@@ -1,0 +1,135 @@
+/* === Base Styling === */
+.dashboard {
+  min-height: 100vh;
+  margin-top: 7px;
+  border-radius: 20px;
+  padding: 30px;
+  background: linear-gradient(135deg, #c9c9c9 0%, #cccccc 100%);
+  font-family: "Poppins", sans-serif;
+  color: #1e293b;
+}
+
+.dashboard-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #334155;
+}
+
+/* === Stats Section === */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h3 {
+  font-size: 1.1rem;
+  color: #475569;
+  margin-bottom: 10px;
+}
+
+.stat-card p {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.stat-card.total {
+  border-top: 4px solid #6366f1;
+}
+
+.stat-card.tasks {
+  border-top: 4px solid #0ea5e9;
+}
+
+.stat-card.completed {
+  border-top: 4px solid #10b981;
+}
+
+.stat-card.pending {
+  border-top: 4px solid #facc15;
+}
+
+/* === Recent Tasks Section === */
+.recent-tasks h2 {
+  font-size: 1.5rem;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.task-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.2rem;
+}
+
+.task-card {
+  background: white;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.task-card h4 {
+  font-size: 1rem;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.task-card p {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.status {
+  position: absolute;
+  bottom: 12px;
+  right: 15px;
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 10px;
+  text-transform: capitalize;
+}
+
+.status.completed {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status.pending {
+  background-color: #fef9c3;
+  color: #854d0e;
+}
+
+.status.in-progress {
+  background-color: #e0f2fe;
+  color: #075985;
+}
+.status.overdue {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}

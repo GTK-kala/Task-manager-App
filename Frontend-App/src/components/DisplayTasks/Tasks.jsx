@@ -37,7 +37,7 @@ const Tasks = () => {
         <div className={`task-card ${task.status}`} key={i}>
           <div className="task-header">
             <h3>{task.title}</h3>
-            <span className="status">{task.status}</span>
+            <span className="status2">{task.status}</span>
           </div>
 
           <p className="task-desc">{task.description}</p>

@@ -82,7 +82,7 @@
 }
 
 /* Status Badges */
-.status {
+.status2 {
   padding: 0.3rem 0.7rem;
   border-radius: 20px;
   font-size: 0.75rem;
@@ -90,17 +90,17 @@
   text-transform: capitalize;
 }
 
-.task-card.pending .status {
+.task-card.pending .status2 {
   background: #fff4e5;
   color: #f39c12;
 }
 
-.task-card.in-progress .status {
+.task-card.in-progress .status2 {
   background: #eaf3ff;
   color: #2980b9;
 }
 
-.task-card.completed .status {
+.task-card.completed .status2 {
   background: #e9f9ee;
   color: #27ae60;
 }
