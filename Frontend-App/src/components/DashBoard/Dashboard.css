@@ -1,142 +1,109 @@
-body {
-  font-family: "Poppins", sans-serif;
-  background: #f7f9fb;
-  margin: 0;
-  color: #333;
-}
-
-/* Layout */
 .dashboard-container {
-  display: flex;
-  height: 100vh;
-}
-
-/* Sidebar */
-.sidebar {
-  width: 240px;
-  background: linear-gradient(180deg, #005bea, #00c6fb);
-  color: white;
+  position: relative;
+  top: -30px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #d7d7d7, #d0d0d0);
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  animation: slideIn 0.6s ease;
+  align-items: center;
+  padding: 2rem;
+  animation: fadeIn1 0.8s ease-in-out;
 }
 
-.logo {
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin-bottom: 40px;
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: slideDown 0.8s ease-out;
 }
 
-.menu {
-  list-style: none;
-  padding: 0;
+.dashboard-header h1 {
+  font-size: 2rem;
+  color: #222;
 }
 
-.menu li {
-  padding: 12px 14px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
+.dashboard-header p {
+  color: #666;
+  font-size: 1.1rem;
 }
 
-.menu li:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateX(5px);
-}
-
-.menu li.active {
-  background: white;
-  color: #005bea;
-  font-weight: 600;
-  transform: scale(1.05);
-}
-
-/* Main content */
-.main-content {
-  flex: 1;
-  padding: 40px;
-  overflow-y: auto;
-  animation: fadeIn 0.6s ease;
-}
-
-/* Overview cards */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
+.dashboard-stats {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
 }
 
 .stat-card {
   background: white;
   border-radius: 16px;
-  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  width: 200px;
   text-align: center;
-  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  animation: scaleUp 0.8s ease-in-out;
 }
 
 .stat-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Task grid */
-.task-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
+.stat-card h3 {
+  color: #555;
+  margin-bottom: 0.5rem;
 }
 
-.task-card {
+.stat-card p {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #111;
+}
+
+.task-preview {
+  width: 90%;
+  max-width: 800px;
   background: white;
   border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
+  padding: 1.5rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.8s ease;
 }
 
-.task-card:hover {
-  transform: scale(1.04);
+.task-list {
+  margin-top: 1rem;
 }
 
-.task-card.completed {
-  border-left: 5px solid #4caf50;
+.task-item {
+  background: #f5f6fa;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: all 0.5s ease;
 }
 
-.task-card.in-progress {
-  border-left: 5px solid #2196f3;
+.task-item:hover {
+  transform: translateX(8px);
+  cursor: pointer;
+  background: #c6ceda;
 }
 
-.task-card.pending {
-  border-left: 5px solid #ffc107;
-}
-
-/* Loading animation */
-.loading {
-  font-size: 1.2rem;
-  animation: pulse 1.2s infinite;
-}
-
-/* Animations */
-@keyframes slideIn {
+/* 🎞️ Animations */
+@keyframes fadeIn1 {
   from {
-    transform: translateX(-50px);
     opacity: 0;
   }
   to {
-    transform: translateX(0);
     opacity: 1;
   }
 }
 
-@keyframes fadeIn {
+@keyframes fadeInUp {
   from {
-    opacity: 0.6;
-    transform: translateY(10px);
+    opacity: 0;
+    transform: translateY(15px);
   }
   to {
     opacity: 1;
@@ -144,11 +111,24 @@ body {
   }
 }
 
-@keyframes pulse {
-  0%, 100% {
-    opacity: 0.4;
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
   }
-  50% {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
     opacity: 1;
   }
 }

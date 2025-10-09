@@ -2,122 +2,111 @@ import { useState, useEffect } from "react";
 import "./Dashboard.css";
 
 const Dashboard = () => {
-  const [activeTab, setActiveTab] = useState("overview");
+  const [icon, setIcon] = useState("");
   const [tasks, setTasks] = useState([]);
-  const [loading, setLoading] = useState(false);
 
-   
-  const fetchTasks = async () =>{
-     try{
-      setLoading(true);
-       const res = fetch("http://localhost:3001/api/tasks")
-       const data = await res.json();
-       const Data = data.results;
-       if(Data.length > 0){
-         setTasks(Data);
-       } else{
+  const fetchTasks = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/api/tasks");
+      const data = await response.json();
+      const Data = data.results;
+      if (Data.length > 0) {
+        setTasks(Data);
+      } else {
         alert("No Tasks Found !!!");
-       }
-     } catch(error){
-       console.log(error);
-     }
-  }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
+  const fetchCompletedTasks = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/api/tasks");
+      const data = await response.json();
+      const Data = data.results;
+      if (Data.length > 0) {
+        setTasks(Data.filter((task) => task.status === "completed"));
+        setIcon("✅");
+      } else {
+        alert("No Tasks Found !!!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-    useEffect(() => {
+  const fetchProgressTasks = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/api/tasks");
+      const data = await response.json();
+      const Data = data.results;
+      if (Data.length > 0) {
+        setTasks(Data.filter((task) => task.status === "in-progress"));
+        setIcon("🕓");
+      } else {
+        alert("No Tasks Found !!!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+    const fetchPendingTasks = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/api/tasks");
+      const data = await response.json();
+      const Data = data.results;
+      if (Data.length > 0) {
+        setTasks(Data.filter((task) => task.status === "pending"));
+        setIcon("🟡");
+      } else {
+        alert("No Tasks Found !!!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
     fetchTasks();
-    f
   }, []);
+
   return (
     <div className="dashboard-container">
-      {/* Sidebar */}
-      <aside className="sidebar">
-        <h2 className="logo">🧩 TaskBoard</h2>
-        <ul className="menu">
-          <li
-            className={activeTab === "overview" ? "active" : ""}
-            onClick={() => setActiveTab("overview")}
-          >
-            📊 Overview
-          </li>
-          <li
-            className={activeTab === "tasks" ? "active" : ""}
-            onClick={() => setActiveTab("tasks")}
-          >
-            ✅ Tasks
-          </li>
-          <li
-            className={activeTab === "users" ? "active" : ""}
-            onClick={() => setActiveTab("users")}
-          >
-            👥 Users
-          </li>
-          <li
-            className={activeTab === "settings" ? "active" : ""}
-            onClick={() => setActiveTab("settings")}
-          >
-            ⚙️ Settings
-          </li>
-        </ul>
-      </aside>
+      <header className="dashboard-header">
+        <h1>📊 Task Manager Dashboard</h1>
+        <p>Welcome back, Khalid 👋</p>
+      </header>
 
-      {/* Main Section */}
-      <main className="main-content">
-        {activeTab === "overview" && (
-          <section className="overview-section">
-            <h1>📈 Dashboard Overview</h1>
-            <div className="stats">
-              <div className="stat-card fade-in">
-                <h3>👥 Users</h3>
-                <p>50 Active</p>
-              </div>
-              <div className="stat-card fade-in">
-                <h3>✅ Tasks</h3>
-                <p>120 Total</p>
-              </div>
-              <div className="stat-card fade-in">
-                <h3>🚀 Projects</h3>
-                <p>8 Running</p>
-              </div>
+      <div className="dashboard-stats">
+        <div className="stat-card" onClick={() => fetchCompletedTasks()}>
+          <h3>✅ Completed Tasks</h3>
+          <p>{tasks.filter((task) => task.status === "completed").length}</p>
+        </div>
+        <div className="stat-card" onClick={() => fetchProgressTasks()}>
+          <h3>🕓 In Progress</h3>
+          <p>{tasks.filter((task) => task.status === "in-progress").length}</p>
+        </div>
+        <div className="stat-card" onClick={() => fetchPendingTasks()}>
+          <h3>🟡 Pending</h3>
+          <p>{tasks.filter((task) => task.status === "pending").length}</p>
+        </div>
+      </div>
+
+      <div className="task-preview">
+        <h2>📋 Recent Tasks</h2>
+        <div className="task-list">
+          {tasks.slice(0, 10).map((task, i) => (
+            <div className="task-item" key={i}>
+              <h4>{task.title}</h4>
+              <p>
+                Status:{icon} {task.status}
+              </p>
             </div>
-          </section>
-        )}
-
-        {activeTab === "tasks" && (
-          <section className="tasks-section fade-in">
-            <h1>🗂️ Task List</h1>
-            {loading ? (
-              <p className="loading">⏳ Loading tasks...</p>
-            ) : (
-              <div className="task-grid">
-                {tasks.map((task) => (
-                  <div
-                    key={task.id}
-                    className={`task-card ${task.status.toLowerCase()}`}
-                  >
-                    <h3>{task.title}</h3>
-                    <p>Status: {task.status}</p>
-                  </div>
-                ))}
-              </div>
-            )}
-          </section>
-        )}
-
-        {activeTab === "users" && (
-          <section className="fade-in">
-            <h1>👥 Users</h1>
-            <p>Display user info here...</p>
-          </section>
-        )}
-
-        {activeTab === "settings" && (
-          <section className="fade-in">
-            <h1>⚙️ Settings</h1>
-            <p>Profile, theme, and preferences.</p>
-          </section>
-        )}
-      </main>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
