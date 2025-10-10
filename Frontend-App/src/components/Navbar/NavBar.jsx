@@ -11,12 +11,9 @@ const Navbar = () => {
   const navigate = useNavigate();
   const  { ToggleDisplay } = useContext(contextApi)
   const [isOpen , setIsOpen] = useState(false)
-  // const [isOpen1, setIsOpen1] = useState(false);
-  // const [isOpen2, setIsOpen2] = useState(false);
-  
+
    const toggleMenu = () => setIsOpen(!isOpen)
-  // const toggleMenu1 = () => setIsOpen1(!isOpen1);
-  // const toggleMenu2 = () => setIsOpen2(!isOpen2);
+
 
   return (
     <div className="navbar-container">
@@ -32,7 +29,7 @@ const Navbar = () => {
       </div>
 
       {/* ---------------- Right (menu) ---------------- */}
-      <div className={`right-container ${isOpen ? "open" : ""}`}>
+      <div className={`right-container ${isOpen ? "open" : "close"}`}>
         <div className="inner-container">
           <button className="Create-btn" onClick={() => { navigate("/TaskPage") , ToggleDisplay() , toggleMenu()}}>
             <FaPlus className="icon" />
@@ -59,7 +56,7 @@ const Navbar = () => {
       </div>
 
       {/* ---------------- Hamburger ---------------- */}
-      <div className="menuBar-icon" onClick={toggleMenu}>
+      <div className="menuBar-icon" onClick={() => toggleMenu()}>
         <FaBars className="icons" />
       </div>
     </div>

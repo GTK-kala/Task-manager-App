@@ -165,15 +165,14 @@
     position: absolute;
     padding: 20px 20px 20px 4px;
     top: 98px;
-    left: 305px;
+    left: 120px;
     border-radius: 20px;
     background-color: #dddddd;
-    opacity: 0;
-    z-index: 10;
     transform: translateX(100%);
-    pointer-events: none;
     transition: all 0.5s ease;
     box-shadow: -2px 0 6px rgba(0, 0, 0, 0.1);
+    display: block;
+    z-index: 10;
   }
   .center-container {
     margin-right: auto;
@@ -181,10 +180,33 @@
   }
   /* When open */
   .right-container.open {
-    opacity: 1;
+    display: block;
     z-index: 10;
-    transform: translateX(0);
-    pointer-events: auto;
+    animation: menu_open 0.5s ease-in-out;
+  }
+  @keyframes menu_open {
+    0%{
+     opacity: 0;
+     transform: translateX(220px);
+    }
+    100%{
+     opacity: 10;
+    transform: translateX(180px);
+    }
+  }
+  .right-container.close {
+    display: none;
+    animation: menu_close 0.5s ease-in-out;
+  }
+    @keyframes menu_close {
+    0%{
+     opacity: 10;
+     transform: translateX(180px);
+    }
+    100%{
+     opacity: 0;
+    transform: translateX(220px);
+    }
   }
   .inner-container {
     flex-direction: column;
@@ -194,11 +216,11 @@
   }
   .icon-container {
     position: relative;
-    left: -6px;
+    left: -3px;
   }
   .Create-btn {
     position: relative;
-    left: 6px;
+    left: 10px;
   }
 
   /* Show menu bar icon */
