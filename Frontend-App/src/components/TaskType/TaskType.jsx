@@ -6,13 +6,9 @@ import "./TaskType.css";
 const TaskType = () => {
   const navigate = useNavigate();
   const [taskList, setTaskList] = useState([]);
-  const [count1, setCount1] = useState(0);
-  const [count2, setCount2] = useState(0);
-  const [count3, setCount3] = useState(0);
 
   const proFun = async () => {
     try {
-      let newCount = 0;
       const res = await fetch("http://localhost:3001/api/tasks");
       const Data = await res.json();
       const data = Data.results;
@@ -21,9 +17,7 @@ const TaskType = () => {
           if (tasks.status === "in-progress") {
             return tasks;
           }
-          newCount++;
         });
-        setCount1(newCount);
         setTaskList(updateTasks);
       } else {
         toast.error("Tasks not found!!!");
@@ -34,7 +28,6 @@ const TaskType = () => {
   };
   const CompletedFun = async () => {
     try {
-      let newCount = 0;
       const res = await fetch("http://localhost:3001/api/tasks");
       const Data = await res.json();
       const data = Data.results;
@@ -43,9 +36,7 @@ const TaskType = () => {
           if (tasks.status === "completed") {
             return tasks;
           }
-          newCount++;
         });
-        setCount2(newCount);
         setTaskList(updateTasks);
       } else {
         toast.error("Tasks not found!!!");
@@ -57,7 +48,6 @@ const TaskType = () => {
 
   const ReviewFun = async () => {
     try {
-      let newCount = 0;
       const res = await fetch("http://localhost:3001/api/tasks");
       const Data = await res.json();
       const data = Data.results;
@@ -65,10 +55,8 @@ const TaskType = () => {
         const updateTasks = data.filter((tasks) => {
           if (tasks.status === "pending") {
             return tasks;
-          }
-          newCount++;
+          };
         });
-        setCount3(newCount);
         setTaskList(updateTasks);
       } else {
         toast.error("Tasks not found!!!");
@@ -97,7 +85,7 @@ const TaskType = () => {
           {/*---------------------Task Type in progress -----------------*/}
           <h4 className="task-type-header in-progress">
             <span className="task-type-label" onClick={() => proFun()}>
-              In Progress ({count1})
+              In Progress ({taskList.filter((task) => task.status === "in-progress").length})
             </span>
             <span className="icons-container">
               <FaPlus className="icon add" onClick={() => navigate("/TaskPage")}/>
@@ -108,7 +96,7 @@ const TaskType = () => {
           {/*---------------------Task Type Completed -----------------*/}
           <h4 className="task-type-header completed">
             <span className="task-type-label" onClick={() => CompletedFun()}>
-              Completed ({count2})
+              Completed ({taskList.filter((task) => task.status === "completed").length})
             </span>
             <span className="icons-container">
               <FaPlus className="icon add" onClick={() => navigate("/TaskPage")}/>
@@ -116,10 +104,10 @@ const TaskType = () => {
             </span>
           </h4>
 
-          {/*---------------------Task Type in Review -----------------*/}
+          {/*---------------------Task Type pending -----------------*/}
           <h4 className="task-type-header review">
             <span className="task-type-label" onClick={() => ReviewFun()}>
-              In Review ({count3})
+              pending ({taskList.filter((task) => task.status === "pending").length})
             </span>
             <span className="icons-container">
               <FaPlus className="icon add" onClick={() => navigate("/TaskPage")}/>

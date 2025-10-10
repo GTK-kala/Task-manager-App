@@ -1,24 +1,24 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./Dashboard.css";
 
 const Dashboard = () => {
   const [icon, setIcon] = useState("");
   const [tasks, setTasks] = useState([]);
 
-  const fetchTasks = async () => {
-    try {
-      const response = await fetch("http://localhost:3001/api/tasks");
-      const data = await response.json();
-      const Data = data.results;
-      if (Data.length > 0) {
-        setTasks(Data);
-      } else {
-        alert("No Tasks Found !!!");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const fetchTasks = async () => {
+  //   try {
+  //     const response = await fetch("http://localhost:3001/api/tasks");
+  //     const data = await response.json();
+  //     const Data = data.results;
+  //     if (Data.length > 0) {
+  //       setTasks(Data);
+  //     } else {
+  //       alert("No Tasks Found !!!");
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const fetchCompletedTasks = async () => {
     try {
@@ -68,9 +68,9 @@ const Dashboard = () => {
     }
   };
 
-  useEffect(() => {
-    fetchTasks();
-  }, []);
+  // useEffect(() => {
+  //   fetchTasks();
+  // }, []);
 
   return (
     <div className="dashboard-container">
@@ -97,7 +97,7 @@ const Dashboard = () => {
       <div className="task-preview">
         <h2>📋 Recent Tasks</h2>
         <div className="task-list">
-          {tasks.slice(0, 10).map((task, i) => (
+          {tasks.slice(0, 3).map((task, i) => (
             <div className="task-item" key={i}>
               <h4>{task.title}</h4>
               <p>
