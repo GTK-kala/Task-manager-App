@@ -1,70 +1,71 @@
+import { Images } from "../../assets/data"
 import "./LandingPage.css";
 
 const LandingPage = () => {
   return (
-    <div className="landing-container">
+    <div className="landing">
       {/* Hero Section */}
-      <section className="hero1">
-        <div className="hero-text">
-          <h1>Organize Your Tasks. Boost Your Productivity.</h1>
-          <p>
-            Track your tasks, manage projects, and stay on top of your work —
-            all in one place.
+      <section className="hero-section">
+        <div className="hero-content">
+          <h1 className="hero-title">
+            Simplify Your <span>Workflow</span> <br /> with Task Manager
+          </h1>
+          <p className="hero-subtitle">
+            Manage your projects, track tasks, and stay productive — all in one elegant dashboard.
           </p>
-          <div className="cta-buttons">
-            <button className="btn primary">Get Started</button>
-            <button className="btn secondary">Login</button>
+          <div className="hero-buttons">
+            <button className="btn get-started">🚀 Get Started</button>
+            <button className="btn login">Login</button>
           </div>
         </div>
-        <div className="hero-image">
+
+        <div className="hero-illustration">
           <img
-            src="https://via.placeholder.com/400x300?text=Dashboard+Preview"
-            alt="App Preview"
+            src={Images.screenshot}
+            alt="Task Manager Dashboard"
           />
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="features">
-        <h2>Features</h2>
-        <div className="feature-cards">
-          <div className="feature-card">
-            <span>📝</span>
-            <h3>Task Management</h3>
-            <p>Add, update, and delete your tasks easily.</p>
+      <section className="features-section">
+        <h2>✨ Powerful Features</h2>
+        <p className="features-subtext">Everything you need to manage your tasks effectively.</p>
+
+        <div className="features-grid">
+          <div className="feature glass">
+            <span>🧩</span>
+            <h3>Smart Dashboard</h3>
+            <p>Get real-time overviews of all your projects in a clean, beautiful interface.</p>
           </div>
-          <div className="feature-card">
-            <span>📊</span>
-            <h3>Dashboard Overview</h3>
-            <p>See all your tasks and stats at a glance.</p>
+          <div className="feature glass">
+            <span>⚡</span>
+            <h3>Instant Updates</h3>
+            <p>Changes sync instantly between users — no refresh required.</p>
           </div>
-          <div className="feature-card">
-            <span>🔔</span>
-            <h3>Notifications</h3>
-            <p>Never miss a deadline with timely alerts.</p>
+          <div className="feature glass">
+            <span>🎯</span>
+            <h3>Goal Tracking</h3>
+            <p>Set goals and visualize progress with engaging task metrics.</p>
           </div>
-          <div className="feature-card">
-            <span>👥</span>
-            <h3>Collaboration</h3>
-            <p>Assign tasks to team members (optional).</p>
+          <div className="feature glass">
+            <span>🔒</span>
+            <h3>Secure & Reliable</h3>
+            <p>All your data is safely stored and protected with strong encryption.</p>
           </div>
         </div>
       </section>
 
-      {/* Demo Section */}
-      <section className="demo">
-        <h2>See it in Action</h2>
-        <div className="demo-image">
-          <img
-            src="https://via.placeholder.com/600x350?text=Tasks+Dashboard+Demo"
-            alt="Tasks Demo"
-          />
-        </div>
+      {/* CTA Section */}
+      <section className="cta-section">
+        <h2>Start Managing Your Tasks Today!</h2>
+        <p>Join thousands of users increasing productivity with our Task Manager App.</p>
+        <button className="btn big">Get Started Free →</button>
       </section>
 
       {/* Footer */}
-      <footer className="landing-footer">
-        <p>© 2025 Task Manager App. All rights reserved.</p>
+      <footer className="footer">
+        <p>© 2025 Task Manager App | Built with ❤️ by Khalid</p>
       </footer>
     </div>
   );

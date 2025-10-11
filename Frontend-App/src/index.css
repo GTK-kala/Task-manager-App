@@ -1,5 +1,10 @@
-body{
-    background: rgb(211, 211, 211);
-    scroll-behavior: smooth;
-    padding: 0;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  font-family: "Inter", sans-serif;
+  color: #fff;
+  overflow-x: hidden;
 }
