@@ -135,7 +135,7 @@ const TaskType = () => {
                   : "No date available"}
               </small>
               <div className="task-actions">
-                <button className="edit" onClick={() => navigate("/TaskPage")}>
+                <button className="edit" onClick={() => navigate("/TaskPage/" + task.task_id)}>
                   ✏️
                 </button>
                 <button

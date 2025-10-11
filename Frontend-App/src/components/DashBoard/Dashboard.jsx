@@ -1,24 +1,25 @@
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import "./Dashboard.css";
 
 const Dashboard = () => {
   const [icon, setIcon] = useState("");
   const [tasks, setTasks] = useState([]);
+  const [Task, setTask] = useState([]);
 
-  // const fetchTasks = async () => {
-  //   try {
-  //     const response = await fetch("http://localhost:3001/api/tasks");
-  //     const data = await response.json();
-  //     const Data = data.results;
-  //     if (Data.length > 0) {
-  //       setTasks(Data);
-  //     } else {
-  //       alert("No Tasks Found !!!");
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  const fetchTasks = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/api/tasks");
+      const data = await response.json();
+      const Data = data.results;
+      if (Data.length > 0) {
+        setTask(Data);
+      } else {
+        alert("No Tasks Found !!!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const fetchCompletedTasks = async () => {
     try {
@@ -68,9 +69,9 @@ const Dashboard = () => {
     }
   };
 
-  // useEffect(() => {
-  //   fetchTasks();
-  // }, []);
+  useEffect(() => {
+    fetchTasks();
+  }, []);
 
   return (
     <div className="dashboard-container">
@@ -82,15 +83,15 @@ const Dashboard = () => {
       <div className="dashboard-stats">
         <div className="stat-card" onClick={() => fetchCompletedTasks()}>
           <h3>✅ Completed Tasks</h3>
-          <p>{tasks.filter((task) => task.status === "completed").length}</p>
+          <p>{Task.filter((task) => task.status === "completed").length}</p>
         </div>
         <div className="stat-card" onClick={() => fetchProgressTasks()}>
           <h3>🕓 In Progress</h3>
-          <p>{tasks.filter((task) => task.status === "in-progress").length}</p>
+          <p>{Task.filter((task) => task.status === "in-progress").length}</p>
         </div>
         <div className="stat-card" onClick={() => fetchPendingTasks()}>
           <h3>🟡 Pending</h3>
-          <p>{tasks.filter((task) => task.status === "pending").length}</p>
+          <p>{Task.filter((task) => task.status === "pending").length}</p>
         </div>
       </div>
 
