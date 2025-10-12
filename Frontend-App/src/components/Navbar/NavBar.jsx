@@ -37,11 +37,11 @@ const Navbar = () => {
           </button>
           <div className="icon-container">
             <div className="icon-wrapper">
-              <MdNotifications className="icon bell"/>
+              <MdNotifications className="icon-bell"/>
               <span className="badge">3</span>
             </div>
             <div className="icon-wrapper">
-              <MdMessage className="icon message"/>
+              <MdMessage className="icon-message"/>
               <span className="badge">5</span>
             </div>
             <div className="icon-wrapper">
