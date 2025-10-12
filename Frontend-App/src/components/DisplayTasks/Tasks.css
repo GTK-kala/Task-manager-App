@@ -1,118 +1,131 @@
-/* Grid Layout */
 .tasks-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
   padding: 2rem;
+  background: linear-gradient(135deg, #eef2f3 0%, #dfe9f3 100%);
+  min-height: 100vh;
+  animation: fadeIn 0.7s ease-in-out;
 }
 
-/* Card Style */
+/* ---- Task Card ---- */
 .task-card {
-  background: #fff;
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
   padding: 1.5rem;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
   cursor: pointer;
-  opacity: 0;
-  animation: fadeInUp 0.8s forwards;
-  animation-delay: calc(var(--i, 0) * 0.1s);
+  position: relative;
+  overflow: hidden;
 }
 
 .task-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 30px rgba(10, 9, 9, 0.12);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* Header */
+/* ---- Task Header ---- */
 .task-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .task-header h3 {
   font-size: 1.2rem;
-  margin: 0;
-  color: #2c3e50;
-}
-
-/* Description */
-.task-desc {
-  font-size: 0.95rem;
-  color: #555;
-  margin: 1rem 0;
-  line-height: 1.5;
-  flex-grow: 1;
-}
-
-/* Footer */
-.task-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.85rem;
-  margin-top: 1rem;
-  border-top: 1px solid #eee;
-  padding-top: 0.8rem;
-}
-
-/* Actions */
-.task-actions button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.1rem;
-  margin-left: 0.5rem;
-  transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.task-actions button:hover {
-  transform: scale(1.2);
-}
-
-.task-actions .edit:hover {
-  color: #2980b9;
-}
-
-.task-actions .delete:hover {
-  color: #e74c3c;
-}
-
-/* Status Badges */
-.status2 {
-  padding: 0.3rem 0.7rem;
-  border-radius: 20px;
-  font-size: 0.75rem;
   font-weight: 600;
+  color: #1d1d1f;
+}
+
+.status2 {
+  padding: 0.4rem 0.8rem;
+  border-radius: 30px;
+  font-size: 0.85rem;
   text-transform: capitalize;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* ---- Status Colors ---- */
+.task-card.completed .status2 {
+  background-color: rgba(56, 239, 125, 0.15);
+  color: #38ef7d;
 }
 
 .task-card.pending .status2 {
-  background: #fff4e5;
-  color: #f39c12;
+  background-color: rgba(255, 205, 86, 0.2);
+  color: #ffb400;
 }
 
 .task-card.in-progress .status2 {
-  background: #eaf3ff;
-  color: #2980b9;
+  background-color: rgba(86, 180, 255, 0.2);
+  color: #3498db;
 }
 
-.task-card.completed .status2 {
-  background: #e9f9ee;
-  color: #27ae60;
+/* ---- Description ---- */
+.task-desc {
+  margin: 1rem 0;
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.6;
 }
 
-/* Entry Animation */
-@keyframes fadeInUp {
-  from {
+/* ---- Footer ---- */
+.task-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.task-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* ---- Buttons ---- */
+.task-actions button {
+  border: none;
+  padding: 0.5rem 0.7rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  background: transparent;
+}
+
+.task-actions .edit:hover {
+  background-color: rgba(52, 152, 219, 0.15);
+  transform: scale(1.1);
+}
+
+.task-actions .delete:hover {
+  background-color: rgba(231, 76, 60, 0.15);
+  transform: scale(1.1);
+}
+
+/* ---- Animations ---- */
+@keyframes fadeIn {
+  0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(15px);
   }
-  to {
+  100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .tasks-container {
+    padding: 1rem;
+  }
+
+  .task-card {
+    padding: 1rem;
   }
 }

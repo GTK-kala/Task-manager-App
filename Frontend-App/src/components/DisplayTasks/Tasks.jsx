@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
-import "./Tasks.css";
-
+import "./Tasks.css"
 const Tasks = () => {
   const [taskList, setTaskList] = useState([]);
   const navigate = useNavigate();
