@@ -1,131 +1,124 @@
+/* Task container layout */
 .tasks-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
   padding: 2rem;
-  background: linear-gradient(135deg, #eef2f3 0%, #dfe9f3 100%);
+  background: linear-gradient(145deg, #0f172a, #1e293b);
   min-height: 100vh;
-  animation: fadeIn 0.7s ease-in-out;
 }
 
-/* ---- Task Card ---- */
+/* Task card base */
 .task-card {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(14px);
-  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
   padding: 1.5rem;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  color: #f8fafc;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  backdrop-filter: blur(10px);
   transition: all 0.3s ease;
-  cursor: pointer;
   position: relative;
   overflow: hidden;
 }
 
+/* Animated hover effect */
 .task-card:hover {
   transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 25px rgba(59,130,246,0.3);
 }
 
-/* ---- Task Header ---- */
+/* Header section */
 .task-header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
 .task-header h3 {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #1d1d1f;
+  color: #e2e8f0;
 }
 
+/* Status badge */
 .status2 {
-  padding: 0.4rem 0.8rem;
-  border-radius: 30px;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
   text-transform: capitalize;
-  font-weight: 500;
-  letter-spacing: 0.3px;
+  font-weight: 600;
 }
 
-/* ---- Status Colors ---- */
+/* Status color variants */
 .task-card.completed .status2 {
-  background-color: rgba(56, 239, 125, 0.15);
-  color: #38ef7d;
+  background: rgba(34,197,94,0.2);
+  color: #4ade80;
 }
 
 .task-card.pending .status2 {
-  background-color: rgba(255, 205, 86, 0.2);
-  color: #ffb400;
+  background: rgba(234,179,8,0.2);
+  color: #facc15;
 }
 
 .task-card.in-progress .status2 {
-  background-color: rgba(86, 180, 255, 0.2);
-  color: #3498db;
+  background: rgba(59,130,246,0.2);
+  color: #60a5fa;
 }
 
-/* ---- Description ---- */
+/* Description */
 .task-desc {
   margin: 1rem 0;
+  color: #cbd5e1;
   font-size: 0.95rem;
-  color: #444;
-  line-height: 1.6;
+  line-height: 1.4;
 }
 
-/* ---- Footer ---- */
+/* Footer */
 .task-footer {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  font-size: 0.8rem;
-  color: #666;
+  align-items: center;
+  color: #94a3b8;
+  font-size: 0.85rem;
 }
 
+/* Action buttons */
 .task-actions {
   display: flex;
   gap: 0.5rem;
 }
 
-/* ---- Buttons ---- */
 .task-actions button {
   border: none;
-  padding: 0.5rem 0.7rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 1.1rem;
   background: transparent;
+  color: #f8fafc;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.25s ease;
 }
 
 .task-actions .edit:hover {
-  background-color: rgba(52, 152, 219, 0.15);
-  transform: scale(1.1);
+  color: #38bdf8;
+  transform: scale(1.2);
 }
 
 .task-actions .delete:hover {
-  background-color: rgba(231, 76, 60, 0.15);
-  transform: scale(1.1);
+  color: #f87171;
+  transform: scale(1.2);
 }
 
-/* ---- Animations ---- */
-@keyframes fadeIn {
-  0% {
+/* Entry animation */
+@keyframes cardFadeIn {
+  from {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(10px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* ---- Responsive ---- */
-@media (max-width: 768px) {
-  .tasks-container {
-    padding: 1rem;
-  }
-
-  .task-card {
-    padding: 1rem;
-  }
+.task-card {
+  animation: cardFadeIn 0.5s ease forwards;
 }

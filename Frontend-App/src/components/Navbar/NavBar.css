@@ -42,11 +42,11 @@
 
 /* 🎯 Center */
 .center-container h1 {
-  font-size: 1.2rem;
-  color: #444;
-  font-weight: 500;
+  font-size: 1.7rem;
+  color: #111;
+  font-weight: 700;
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: color 0.5s ease;
 }
 
 .center-container h1:hover {
