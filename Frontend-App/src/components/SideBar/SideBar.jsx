@@ -51,7 +51,7 @@ const SideBar = () => {
                 </li>
                 <li onClick={() =>{navigate("/Tasks"), handleAnimationEnd()}}>
                   <FaCheckSquare className="icons" />
-                  <span>Tasks</span>
+                  <span>Task</span>
                 </li>
               </ul>
             </div>

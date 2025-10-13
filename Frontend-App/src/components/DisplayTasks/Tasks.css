@@ -1,76 +1,92 @@
-/* Task container layout */
 .tasks-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
   padding: 2rem;
-  background: linear-gradient(145deg, #0f172a, #1e293b);
+  background: linear-gradient(135deg, #0f172a, #1e293b);
   min-height: 100vh;
+  animation: fadeIn 0.6s ease;
 }
 
-/* Task card base */
+/* Task Card */
 .task-card {
   background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
   border-radius: 16px;
   padding: 1.5rem;
-  color: #f8fafc;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-  backdrop-filter: blur(10px);
+  color: #f1f5f9;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   transition: all 0.3s ease;
+  border-left: 5px solid transparent;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
+  animation: fadeUp 0.4s ease;
 }
 
-/* Animated hover effect */
+/* Status Glow */
+.task-card.completed {
+  border-left-color: #22c55e;
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+}
+
+.task-card.in-progress {
+  border-left-color: #3b82f6;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+.task-card.pending {
+  border-left-color: #facc15;
+  box-shadow: 0 0 20px rgba(250, 204, 21, 0.4);
+}
+
+/* Hover Glow Effect */
 .task-card:hover {
   transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 12px 25px rgba(59,130,246,0.3);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
 }
 
-/* Header section */
+/* Header */
 .task-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 0.8rem;
 }
 
 .task-header h3 {
   font-size: 1.2rem;
+  color: #f8fafc;
   font-weight: 600;
-  color: #e2e8f0;
 }
 
-/* Status badge */
 .status2 {
-  font-size: 0.9rem;
-  padding: 0.4rem 0.75rem;
-  border-radius: 8px;
+  font-size: 0.85rem;
   text-transform: capitalize;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
   font-weight: 600;
+  color: #fff;
 }
 
-/* Status color variants */
 .task-card.completed .status2 {
-  background: rgba(34,197,94,0.2);
-  color: #4ade80;
-}
-
-.task-card.pending .status2 {
-  background: rgba(234,179,8,0.2);
-  color: #facc15;
+  background: rgba(34, 197, 94, 0.3);
 }
 
 .task-card.in-progress .status2 {
-  background: rgba(59,130,246,0.2);
-  color: #60a5fa;
+  background: rgba(59, 130, 246, 0.3);
+}
+
+.task-card.pending .status2 {
+  background: rgba(250, 204, 21, 0.3);
 }
 
 /* Description */
 .task-desc {
-  margin: 1rem 0;
   color: #cbd5e1;
+  line-height: 1.5;
   font-size: 0.95rem;
-  line-height: 1.4;
+  margin-bottom: 1rem;
 }
 
 /* Footer */
@@ -82,18 +98,18 @@
   font-size: 0.85rem;
 }
 
-/* Action buttons */
+/* Action Buttons */
 .task-actions {
   display: flex;
   gap: 0.5rem;
 }
 
 .task-actions button {
-  border: none;
   background: transparent;
-  color: #f8fafc;
-  cursor: pointer;
+  border: none;
+  color: #f1f5f9;
   font-size: 1.2rem;
+  cursor: pointer;
   transition: all 0.25s ease;
 }
 
@@ -107,18 +123,23 @@
   transform: scale(1.2);
 }
 
-/* Entry animation */
-@keyframes cardFadeIn {
+/* Animations */
+@keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.task-card {
-  animation: cardFadeIn 0.5s ease forwards;
 }
