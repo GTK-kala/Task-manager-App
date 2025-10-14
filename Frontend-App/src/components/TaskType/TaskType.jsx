@@ -117,7 +117,7 @@ const TaskType = () => {
         </div>
       </div>
       {/* --------------------------Tasks-------------------------------- */}
-      <div className="tasks-container2">
+      <div className="tasks-container">
         {taskList.map((task, i) => (
           <div className={`task-card ${task.status}`} key={i}>
             <div className="task-header">

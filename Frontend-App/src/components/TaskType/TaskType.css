@@ -1,6 +1,9 @@
 /* Main layout */
 .task-type-container {
-  background: linear-gradient(145deg, #0f172a, #1e293b);
+  position: relative;
+  top: -240px;
+  left: 100px;
+  background: transparent;
   padding: 2rem;
   min-height: 100vh;
   color: #f8fafc;
@@ -83,7 +86,7 @@
 }
 
 /* Tasks container */
-.tasks-container2 {
+.tasks-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
