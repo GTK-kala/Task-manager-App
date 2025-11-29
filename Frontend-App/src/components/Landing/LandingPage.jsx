@@ -1,7 +1,10 @@
-import { Images } from "../../assets/data"
+import { useNavigate} from "react-router-dom";
+import { Images } from "../../assets/data";
 import "./LandingPage.css";
 
 const LandingPage = () => {
+   const navigate = useNavigate();
+
   return (
     <div className="landing">
       {/* Hero Section */}
@@ -14,8 +17,8 @@ const LandingPage = () => {
             Manage your projects, track tasks, and stay productive — all in one elegant dashboard.
           </p>
           <div className="hero-buttons">
-            <button className="btn get-started">🚀 Get Started</button>
-            <button className="btn login">Login</button>
+            <button className="btn get-started" onClick={() => navigate('/TaskPage')}>🚀 Get Started</button>
+            <button className="btn login" onClick={() => navigate('/accounts')}>Login</button>
           </div>
         </div>
 

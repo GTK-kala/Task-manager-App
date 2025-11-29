@@ -116,7 +116,9 @@ const Dashboard = () => {
             <div className="task-item" key={i}>
               <h4>{task.title}</h4>
               <p>
-                Status:{icon} {task.status}
+                <span>Status:</span>
+                <span> {icon}</span>
+                <span> {task.status}</span>
               </p>
             </div>
           ))}
