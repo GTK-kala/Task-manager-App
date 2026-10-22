@@ -1,5 +1,5 @@
-import { FiFlag } from "react-icons/fi";
 import Badge from "../common/Badge";
+import { FiFlag } from "react-icons/fi";
 
 const priorityTone = { high: "high", medium: "medium", low: "low" };
 const priorityLabel = { high: "High", medium: "Medium", low: "Low" };

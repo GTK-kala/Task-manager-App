@@ -9,10 +9,10 @@ import {
 } from "react-icons/fi";
 import Card from "../../components/common/Card";
 import Button from "../../components/common/Button";
-import ProgressRing from "../../components/common/ProgressRing";
+import { useAuth } from "../../context/AuthContext";
 import TaskItem from "../../components/dashboard/TaskItem";
 import TaskModal from "../../components/dashboard/TaskModal";
-import { useAuth } from "../../context/AuthContext";
+import ProgressRing from "../../components/common/ProgressRing";
 
 const INITIAL_TASKS = [
   {

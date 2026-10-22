@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { FiMenu, FiSearch, FiBell } from "react-icons/fi";
 import ThemeToggle from "./ThemeToggle";
 import { useAuth } from "../../context/AuthContext";
+import { Link, useLocation } from "react-router-dom";
+import { FiMenu, FiSearch, FiBell } from "react-icons/fi";
 
 const titles = {
   "/dashboard": "Dashboard",

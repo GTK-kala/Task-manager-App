@@ -10,9 +10,9 @@ import {
   FiMoon,
 } from "react-icons/fi";
 import Card from "../../components/common/Card";
+import Badge from "../../components/common/Badge";
 import Button from "../../components/common/Button";
 import Toggle from "../../components/common/Toggle";
-import Badge from "../../components/common/Badge";
 import { useAuth } from "../../context/AuthContext";
 import { useTheme } from "../../context/ThemeContext";
 

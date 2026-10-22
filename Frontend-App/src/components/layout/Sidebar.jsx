@@ -1,7 +1,7 @@
-import { NavLink } from "react-router-dom";
-import { FiGrid, FiSettings, FiLogOut, FiX } from "react-icons/fi";
 import Logo from "../common/Logo";
+import { NavLink } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { FiGrid, FiSettings, FiLogOut, FiX } from "react-icons/fi";
 
 const navItems = [
   { to: "/dashboard", label: "Dashboard", Icon: FiGrid },

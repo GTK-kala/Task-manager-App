@@ -1,10 +1,10 @@
-import { Routes, Route, Link } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
-import AppLayout from "../components/layout/AppLayout";
 import Landing from "../pages/Landing/Landing";
-import Dashboard from "../pages/Dashboard/Dashboard";
-import Settings from "../pages/Settings/Settings";
 import Button from "../components/common/Button";
+import Settings from "../pages/Settings/Settings";
+import Dashboard from "../pages/Dashboard/Dashboard";
+import { Routes, Route, Link } from "react-router-dom";
+import AppLayout from "../components/layout/AppLayout";
 
 const NotFound = () => (
   <div className="flex min-h-dvh flex-col items-center justify-center gap-6 px-6 text-center">
