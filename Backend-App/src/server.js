@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import route from "./routes/route.js";
 
 const port = 3001;
 const app = express();
@@ -12,8 +11,6 @@ app.use(
     extended: true,
   }),
 );
-
-app.use("/api", route);
 
 app.listen(port, () => {
   console.log(`app is listening on port ${port}!!`);
