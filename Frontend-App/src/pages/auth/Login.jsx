@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import {
   FiMail,
   FiLock,
@@ -9,20 +8,20 @@ import {
   FiArrowLeft,
   FiCheck,
 } from "react-icons/fi";
+import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
-import toast from "react-hot-toast";
 import Card from "../../components/common/Card";
-import Button from "../../components/common/Button";
 import Logo from "../../components/common/Logo";
-import ThemeToggle from "../../components/layout/ThemeToggle";
-import AuthAside from "../../components/auth/AuthAside";
+import Button from "../../components/common/Button";
 import { useAuth } from "../../context/AuthContext";
+import AuthAside from "../../components/auth/AuthAside";
+import ThemeToggle from "../../components/layout/ThemeToggle";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 
 const inputBase =
   "w-full bg-transparent text-sm font-semibold text-ink outline-none placeholder:text-muted";
 
-/* Claymorphism input with a focus/error glow on the wrapper (no shadow clash) */
 const Field = ({ icon, error, children }) => (
   <div
     className={`rounded-[1.15rem] transition-shadow duration-200 ${

@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import {
   FiArrowRight,
   FiCheck,
@@ -9,14 +9,14 @@ import {
   FiMenu,
   FiX,
 } from "react-icons/fi";
-import { useState } from "react";
-import Button from "../../components/common/Button";
 import Card from "../../components/common/Card";
 import Logo from "../../components/common/Logo";
 import Badge from "../../components/common/Badge";
+import Button from "../../components/common/Button";
+import { useAuth } from "../../context/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
 import ThemeToggle from "../../components/layout/ThemeToggle";
 import ProgressRing from "../../components/common/ProgressRing";
-import { useAuth } from "../../context/AuthContext";
 
 const features = [
   {
@@ -42,14 +42,15 @@ const previewTasks = [
   { title: "Sync with backend team", done: false, tone: "medium" },
 ];
 
+const navLinks = ["Features", "How it works", "Pricing"];
+
 const Landing = () => {
-  const { login, isAuthenticated } = useAuth();
+  const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleStart = () => {
-    if (!isAuthenticated) login();
-    navigate("/dashboard");
+    navigate(isAuthenticated ? "/dashboard" : "/register");
   };
 
   return (
@@ -63,10 +64,12 @@ const Landing = () => {
       {/* Navbar */}
       <header className="sticky top-0 z-30 bg-bg/70 backdrop-blur-xl">
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <Logo />
+          <Link to="/" aria-label="Taskly home">
+            <Logo />
+          </Link>
 
           <nav className="hidden items-center gap-8 md:flex">
-            {["Features", "How it works", "Pricing"].map((item) => (
+            {navLinks.map((item) => (
               <a
                 key={item}
                 href="#features"
@@ -88,10 +91,15 @@ const Landing = () => {
                 </Button>
               </Link>
             ) : (
-              <Button onClick={handleStart} className="hidden sm:inline-flex">
-                Get started
-                <FiArrowRight className="h-4 w-4" />
-              </Button>
+              <div className="hidden items-center gap-2 sm:flex sm:gap-3">
+                <Link to="/login">
+                  <Button variant="soft">Sign in</Button>
+                </Link>
+                <Button onClick={handleStart}>
+                  Get started
+                  <FiArrowRight className="h-4 w-4" />
+                </Button>
+              </div>
             )}
 
             <button
@@ -112,7 +120,7 @@ const Landing = () => {
         {menuOpen && (
           <div className="animate-fade-up px-4 pb-4 md:hidden">
             <Card size="sm" className="flex flex-col gap-1 p-3">
-              {["Features", "How it works", "Pricing"].map((item) => (
+              {navLinks.map((item) => (
                 <a
                   key={item}
                   href="#features"
@@ -122,10 +130,27 @@ const Landing = () => {
                   {item}
                 </a>
               ))}
-              <Button onClick={handleStart} className="mt-2 w-full">
-                Get started
-                <FiArrowRight className="h-4 w-4" />
-              </Button>
+
+              {isAuthenticated ? (
+                <Link to="/dashboard" onClick={() => setMenuOpen(false)}>
+                  <Button className="mt-2 w-full">
+                    Dashboard
+                    <FiArrowRight className="h-4 w-4" />
+                  </Button>
+                </Link>
+              ) : (
+                <div className="mt-2 flex flex-col gap-2">
+                  <Link to="/login" onClick={() => setMenuOpen(false)}>
+                    <Button variant="soft" className="w-full">
+                      Sign in
+                    </Button>
+                  </Link>
+                  <Button onClick={handleStart} className="w-full">
+                    Get started
+                    <FiArrowRight className="h-4 w-4" />
+                  </Button>
+                </div>
+              )}
             </Card>
           </div>
         )}
@@ -364,10 +389,10 @@ const Landing = () => {
             <Button
               variant="soft"
               size="lg"
-              onClick={handleStart}
+              onClick={() => navigate("/login")}
               className="w-full sm:w-auto"
             >
-              Live demo
+              Sign in
             </Button>
           </div>
         </Card>

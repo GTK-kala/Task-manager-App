@@ -1,3 +1,5 @@
+import Login from "../pages/auth/Login";
+import Register from "../pages/auth/Register";
 import ProtectedRoute from "./ProtectedRoute";
 import Landing from "../pages/Landing/Landing";
 import Button from "../components/common/Button";
@@ -26,6 +28,8 @@ const NotFound = () => (
 const AppRoutes = () => (
   <Routes>
     <Route path="/" element={<Landing />} />
+    <Route path="/login" element={<Login />} />
+    <Route path="/register" element={<Register />} />
 
     <Route
       element={
