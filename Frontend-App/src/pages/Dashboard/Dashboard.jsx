@@ -78,7 +78,7 @@ const UPCOMING = [
 ];
 
 const StatCard = ({ Icon, label, value, hint, accent }) => (
-  <Card className="clay-press p-4 sm:p-5">
+  <Card className="clay-press min-w-0 p-4 sm:p-5">
     <div className="flex items-start justify-between">
       <div
         className={`flex h-10 w-10 items-center justify-center rounded-xl ${
@@ -138,7 +138,7 @@ const Dashboard = () => {
     <div className="animate-fade-up space-y-5">
       {/* Header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-        <div>
+        <div className="min-w-0">
           <p className="text-xs font-bold uppercase tracking-[0.14em] text-muted">
             {today}
           </p>
@@ -189,9 +189,9 @@ const Dashboard = () => {
       </div>
 
       {/* Main grid */}
-      <div className="grid gap-4 lg:grid-cols-3 lg:gap-5">
+      <div className="grid min-w-0 gap-4 lg:grid-cols-3 lg:gap-5">
         {/* Task list */}
-        <Card className="p-4 sm:p-6 lg:col-span-2">
+        <Card className="min-w-0 p-4 sm:p-6 lg:col-span-2">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <h3 className="text-base font-extrabold tracking-tight text-ink">
               My tasks
@@ -241,7 +241,7 @@ const Dashboard = () => {
         </Card>
 
         {/* Right column */}
-        <div className="space-y-4 lg:space-y-5">
+        <div className="min-w-0 space-y-4 lg:space-y-5">
           {/* Progress */}
           <Card className="flex flex-col items-center p-6">
             <h3 className="self-start text-base font-extrabold tracking-tight text-ink">

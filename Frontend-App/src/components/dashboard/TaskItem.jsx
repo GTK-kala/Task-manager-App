@@ -51,14 +51,13 @@ const TaskItem = ({ task, onToggle, onDelete }) => {
         </div>
       </div>
 
-      {/* Priority */}
-      <Badge
-        tone={priorityTone[task.priority]}
-        className="hidden shrink-0 sm:inline-flex"
-      >
-        <FiFlag className="h-3 w-3" />
-        {priorityLabel[task.priority]}
-      </Badge>
+      {/* Priority — wrapped so `hidden` can't be overridden by Badge's inline-flex */}
+      <div className="hidden shrink-0 sm:block">
+        <Badge tone={priorityTone[task.priority]}>
+          <FiFlag className="h-3 w-3" />
+          {priorityLabel[task.priority]}
+        </Badge>
+      </div>
 
       {/* Delete */}
       <button

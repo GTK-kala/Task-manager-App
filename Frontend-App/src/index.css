@@ -54,6 +54,7 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: clip; /* Prevents horizontal scroll from clay shadows without breaking sticky */
   }
 
   body {
