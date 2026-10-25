@@ -26,7 +26,7 @@ const Navbar = ({ onMenuClick }) => {
           <FiMenu className="h-[18px] w-[18px]" />
         </button>
 
-        <h1 className="truncate text-sm font-extrabold tracking-tight text-ink sm:text-base">
+        <h1 className="min-w-0 flex-1 truncate text-sm font-extrabold tracking-tight text-ink sm:text-base">
           {titles[pathname] || "Taskly"}
         </h1>
 
@@ -41,7 +41,7 @@ const Navbar = ({ onMenuClick }) => {
           />
         </div>
 
-        <div className="ml-auto flex items-center gap-2 md:ml-0">
+        <div className="ml-auto flex shrink-0 items-center gap-2 md:ml-0">
           <ThemeToggle />
 
           <button
