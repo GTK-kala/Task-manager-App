@@ -54,12 +54,12 @@ const Register = () => {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirm, setConfirm] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [terms, setTerms] = useState(false);
   const [errors, setErrors] = useState({});
+  const [terms, setTerms] = useState(false);
+  const [confirm, setConfirm] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   if (isAuthenticated) return <Navigate to="/dashboard" replace />;
 
@@ -95,10 +95,12 @@ const Register = () => {
     setLoading(true);
     try {
       await new Promise((r) => setTimeout(r, 750)); // mock latency — replace with API
-      register({ name: name.trim(), email: email.trim() });
-      toast.success("Account created. Welcome to Taskly!");
-      navigate("/dashboard", { replace: true });
-    } catch {
+      register({
+        name: name.trim(),
+        email: email.trim(),
+        password: password.trim(),
+      });
+    } catch (error) {
       toast.error("Couldn't create your account. Please try again.");
     } finally {
       setLoading(false);

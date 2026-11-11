@@ -1,7 +1,7 @@
+import { Navigate, useNavigate } from "react-router-dom";
 import { createContext, useContext, useState, useEffect } from "react";
 
 const AuthContext = createContext(null);
-
 const STORAGE_KEY = "taskly-user";
 
 const readUser = () => {
@@ -48,9 +48,32 @@ export const AuthProvider = ({ children }) => {
     return true;
   };
 
-  const register = ({ name, email }) => {
-    setUser(buildUser(email, name));
-    return true;
+  const register = ({ name, email, password }) => {
+    console.log(name, email, password);
+    const navigate = useNavigate();
+    try {
+      if (!name || !email || !password) {
+        throw new Error("All fields are required");
+      } else {
+        const res = fetch("http://localhost:3001/api/users/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, email, password }),
+        });
+        if (!res.ok) {
+          throw new Error("Registration failed");
+        } else {
+          setUser(buildUser(email, name));
+          navigate("/dashboard", { replace: true });
+          return true;
+        }
+      }
+    } catch (error) {
+      console.error("Registration error:", error);
+      return false;
+    }
   };
 
   const logout = () => setUser(null);
